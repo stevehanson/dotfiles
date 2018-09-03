@@ -1,0 +1,42 @@
+#!/bin/sh
+
+brew bundle --file=- <<EOF
+brew "diff-so-fancy"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+brew "fzf"
+brew "ripgrep"
+EOF
+
+# Install TMUX Plugin Manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+if [ -r "$HOME/.rcrc" ]; then
+  fancy_echo "Updating dotfiles ..."
+  rcup
+fi
+
+###############################################################################
+# Mac customizations                                                          #
+# see: https://github.com/mathiasbynens/dotfiles/blob/master/.macos           #
+###############################################################################
+
+# Show hidden files
+defaults write com.apple.finder AppleShowAllFiles -bool YES
+
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 20
+
+# Finder: show all filename extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Avoid creating .DS_Store files on network or USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+
+# Prevent Time Machine from prompting to use new hard drives as backup volume
+defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
