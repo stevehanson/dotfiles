@@ -1,3 +1,6 @@
+" Note: to look up a key mapping, in Vim, type, eg: ":map <C-P>" or C-Q then
+" type the key combo
+
 " Leader
 let mapleader = " "
 
@@ -29,7 +32,7 @@ endif
 
 filetype plugin indent on
 
-augroup vimrcEx
+augroup shanson
   autocmd!
 
   " When editing a file, always jump to the last known cursor position.
@@ -43,17 +46,12 @@ augroup vimrcEx
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile *.md set filetype=markdown
   autocmd BufRead,BufNewFile .{jscs,jshint,eslint}rc set filetype=json
+  autocmd BufRead,BufNewFile vimrc.local set filetype=vim
+  autocmd BufRead,BufNewFile */zsh/configs/*,*bin/* set filetype=sh
 
-  " ALE linting events
+  " set ALE linting interval
   if g:has_async
     set updatetime=1000
-    let g:ale_lint_on_text_changed = 0
-    autocmd CursorHold * call ale#Lint()
-    autocmd CursorHoldI * call ale#Lint()
-    autocmd InsertEnter * call ale#Lint()
-    autocmd InsertLeave * call ale#Lint()
-  else
-    echoerr "The thoughtbot dotfiles require NeoVim or Vim 8"
   endif
 augroup END
 
@@ -72,23 +70,6 @@ set list listchars=tab:»·,trail:·,nbsp:·
 
 " Use one space, not two, after punctuation.
 set nojoinspaces
-
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
 
 " Make it obvious where 80 characters is
 set textwidth=80
