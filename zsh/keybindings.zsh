@@ -5,6 +5,9 @@ stty -ixon
 bindkey -v
 bindkey "^F" vi-cmd-mode
 
+# switch to command mode with 'jk'
+bindkey -M viins 'jk' vi-cmd-mode
+
 # handy keybindings
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line

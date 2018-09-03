@@ -1,4 +1,5 @@
 !bin
 vim/bundle/
-.*.private
+/*.private
+/bin.private
 /scripts
