@@ -4,6 +4,7 @@ brew bundle --file=- <<EOF
 brew "diff-so-fancy"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+brew "zsh-completions"
 brew "fzf"
 brew "ripgrep"
 EOF
