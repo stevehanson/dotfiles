@@ -77,6 +77,7 @@ alias rdbs="rails db:migrate:status | tail -n 15"
 alias be="bundle exec"
 
 ## TMUX ##
+alias mux="tmuxinator"
 alias tml="tmux list-sessions"
 alias tma="tmux -2 attach -t"
 alias t="mux s"
