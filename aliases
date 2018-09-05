@@ -6,7 +6,7 @@ alias vim="nvim"
 alias ssh="TERM=xterm-256color ssh"
 alias sz="source ~/.zshrc"
 
-# Unix
+## UNIX ##
 alias ll="ls -al"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
@@ -15,12 +15,9 @@ alias v="$VISUAL"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-
 ## EDITING DOTFILES ##
 alias df="cd ~/dotfiles"
-alias dfl="cd ~/dotfiles-local"
-alias vv="vim ~/dotfiles-local/vimrc.local"
-alias vvb="vim ~/dotfiles-local/vimrc.bundles.local"
+alias vd="vim ~/dotfiles"
 
 ## GIT ##
 alias g-="git checkout -"
