@@ -5,6 +5,8 @@ dotfiles][thoughtfiles]. I previously used the thoughtbot
 dotfiles along with [my own overrides](https://github.com/stevehanson/dotfiles-local) but decided to merge mine in with theirs in order
 to have more control over my dotfiles.
 
+![Terminal Screenshot](iterm/screenshot.png)
+
 ## Setting up a new computer
 
 When setting up a new computer, the [thoughtbot

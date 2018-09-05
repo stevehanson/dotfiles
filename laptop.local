@@ -17,6 +17,10 @@ if [ -r "$HOME/.rcrc" ]; then
   rcup
 fi
 
+# Install 256 color italic iterm profiles 
+tic ~/dotfiles/iterm/xterm-256color-italic.terminfo
+tic ~/dotfiles/iterm/tmux-256color-italic.terminfo
+
 ###############################################################################
 # Mac customizations                                                          #
 # see: https://github.com/mathiasbynens/dotfiles/blob/master/.macos           #
