@@ -1,3 +1,5 @@
+" ~~~~~~~~~~~~~~~~~~~~~ 🌞 shanson's dotfiles 🌞 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 " == General Settings ==========================================================
 
 let mapleader = " "
@@ -103,10 +105,18 @@ nnoremap <leader>cF :let @+=expand("%:p")<CR>
 " Filename, without path
 nnoremap <leader>ct :let @+=expand("%:t")<CR>
 
+" == gvim config ===============================================================
+
+if has('gui')
+  set guifont=Meslo\ LG\ L\ for\ Powerline:h15
+  set guioptions-=T " Start without the toolbar
+  colorscheme slate
+end
+
 " == Additional Config Files ===================================================
 
-source ~/.vimrc.bundles     " vim plugins
 source ~/.vim/autocmds.vim  " misc autocmds
+source ~/.vim/bundles.vim   " vim plugin declarations
 source ~/.vim/functions.vim " custom functions
 source ~/.vim/plugins.vim   " plugin-specific config
 source ~/.vim/theme.vim     " theme customizations
