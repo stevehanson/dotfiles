@@ -12,9 +12,7 @@ source ~/.zsh/path.zsh
 source ~/.zsh/plugins.zsh
 source ~/.zsh/prompt.zsh
 source ~/.zsh/completion.zsh
+source ~/.zsh/aliases.zsh
 
 # Private, client-specific config
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private
-
-# aliases
-[[ -f ~/.aliases ]] && source ~/.aliases

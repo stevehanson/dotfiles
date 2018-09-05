@@ -1,0 +1,5 @@
+# Finds which process is using 3000 or supplied port and kills it
+function kill_port() {
+  local port="${1:-3000}"
+    kill -9 $(lsof -i tcp:${port} -t)
+}

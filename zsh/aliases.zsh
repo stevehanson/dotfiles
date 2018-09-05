@@ -1,25 +1,25 @@
-## GENERAL ##
+# == General ===================================================================
+
 alias st="open -a SourceTree"
 alias a="atom ."
 alias safe="mkdir .git/safe"
 alias vim="nvim"
 alias ssh="TERM=xterm-256color ssh"
 alias sz="source ~/.zshrc"
+alias df="cd ~/dotfiles"
+alias vd="vim ~/dotfiles"
 
-## UNIX ##
+# == Unix ======================================================================
+
 alias ll="ls -al"
 alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
-# Pretty print the path
-alias path='echo $PATH | tr -s ":" "\n"'
+alias path='echo $PATH | tr -s ":" "\n"' # Pretty print the path
 
-## EDITING DOTFILES ##
-alias df="cd ~/dotfiles"
-alias vd="vim ~/dotfiles"
+# == Git =======================================================================
 
-## GIT ##
 alias g-="git checkout -"
 alias ga="git add "
 alias gp="git p"
@@ -43,22 +43,23 @@ alias gsa="git stash apply"
 alias guncommit="git reset --soft HEAD^"
 alias gunc="guncommit"
 
-## HEROKU ##
+# == Heroku ====================================================================
+
 alias hconfig="heroku config --remote"
 alias hc="heroku run rails c --remote"
 alias hm="heroku run rake db:migrate --remote"
 
-## MISC ##
-# update rbenv ruby definitions. I prefer the rbenv-update plugin to this
-alias update_rbenv="cd ~/.rbenv/plugins/ruby-build; git pull"
+# == Postgres ==================================================================
 
-## POSTGRES ##
 alias pglog="tail -f /usr/local/var/postgres/server.log"
-# run this if getting an error starting postgres after os x crash
-alias pgdeletepid="rm /usr/local/var/postgres/postmaster.pid"
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 
-## RAILS ##
+# run this if getting an error starting postgres after os x crash
+alias pgdeletepid="rm /usr/local/var/postgres/postmaster.pid"
+
+
+# == Rails =====================================================================
+
 alias r="rails s"
 alias rc="rails c"
 alias s="rspec"
@@ -73,27 +74,12 @@ alias rdbrt="rails db:rollback RAILS_ENV=test"
 alias rdbs="rails db:migrate:status | tail -n 15"
 alias be="bundle exec"
 
-## TMUX ##
+# == tmux ======================================================================
+
 alias mux="tmuxinator"
 alias tml="tmux list-sessions"
 alias tma="tmux -2 attach -t"
 alias t="mux s"
 alias tmk="tmux kill-session -t"
+alias tmks="tmux kill-server"
 alias tn="tmux new-session -d -s"
-
-# alias "c {x}" to do "cd ~/dev/{x}" with tab completion
-c() { cd ~/dev/$1; }
-_c() { _files -W ~/dev -/; }
-compdef _c c
-
-# Find which process is using 3000 or supplied port, then run kill -9 {pid}
-function ports() {
-  local port="${1:-3000}"
-  lsof -wni tcp:${port};
-}
-
-# Finds which process is using 3000 or supplied port and kills it
-function kill_port() {
-  local port="${1:-3000}"
-  kill -9 $(lsof -i tcp:${port} -t)
-}
