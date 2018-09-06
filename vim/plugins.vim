@@ -9,11 +9,16 @@ end
 
 " == Airline ===================================================================
 
-let g:airline_theme='onedark'
+let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline_section_z = airline#section#create(['linenr', ':%2v'])
+let g:airline#extensions#hunks#enabled = 0 " Turn off the git file status
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#left_sep = ' '
+" let g:airline#extensions#tabline#left_alt_sep = ''
+" let g:airline#extensions#tabline#formatter = 'default'
 
 " == ALE =======================================================================
 
@@ -59,7 +64,7 @@ let g:user_emmet_settings = {
 
 " == FZF =======================================================================
 
-nmap <silent> <leader>p :GFiles<CR>
+nmap <silent> <leader>P :GFiles<CR>
 let g:fzf_colors =
       \ { 'fg':      ['fg', 'Normal'],
       \ 'bg':      ['bg', 'Normal'],
@@ -89,9 +94,13 @@ let g:incsearch#auto_nohlsearch = 1
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
 map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
+" map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
+
+" == Lexima ====================================================================
+
+" Note: To insert quote/paren without auto-match, type C-v first
 
 " == MatchIt ===================================================================
 

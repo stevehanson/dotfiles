@@ -50,6 +50,7 @@ filetype plugin indent on        " Detect and load filetypes and indent config
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like block tags
 
 " == General key mappings ======================================================
+
 " Note: Look up mappings with `:map`, eg: `:map <C-P>`
 
 " Map jk to escape
@@ -62,9 +63,16 @@ nnoremap k gk
 " Auto-indent code when pasting with p
 nnoremap p p=`]
 
+" Paste last yanked text, even if have deleted since
+nnoremap <Leader>p "0p
+
+" Move to end of line, without newline character when in visual mode
+" Also use il, al provided by vim-textobj-line for selecting lines
+vnoremap $ g_
+
 " Switch tabs
-nnoremap <C-Left> gT
-nnoremap <C-Right> gt
+nnoremap <C-[> gT
+nnoremap <C-]> gt
 
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
@@ -83,7 +91,7 @@ nnoremap <leader>q gqip
 
 " Edit/source vimrc
 nnoremap <leader>ve :vsplit ~/dotfiles/vimrc<CR>
-nnoremap <leader>vs :source $MYVIMRC<CR> \| :echo "vimrc reloaded 🌞"<CR>
+nnoremap <leader>vs :source $MYVIMRC<CR> \| :noh<CR> \| :echo "vimrc reloaded 🌞"<CR>
 
 " run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<Space>
