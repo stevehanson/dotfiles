@@ -39,7 +39,7 @@ nnoremap [r :ALEPreviousWrap<CR>
 nnoremap <C-b> :CtrlPBuffer<cr>
 
 let g:ctrlp_show_hidden = 1
-let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
 let g:ctrlp_use_caching = 0
 
 " == Deoplete ==================================================================
