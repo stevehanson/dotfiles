@@ -175,6 +175,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" == Vim Eighties ==============================================================
+
+let g:eighties_extra_width = 1 " Add some extra room
+
 " == Vim Multiple Cursors ======================================================
 
 " Disable Deoplete when selecting multiple cursors starts
@@ -194,3 +198,7 @@ function! Multiple_cursors_after()
     exe 'NeoCompleteUnlock'
   endif
 endfunction
+
+" == Vim Run Interactive =======================================================
+
+nnoremap <Leader>r :RunInInteractiveShell<Space>

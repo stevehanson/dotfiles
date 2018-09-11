@@ -14,5 +14,5 @@ source ~/.zsh/prompt.zsh
 source ~/.zsh/completion.zsh
 source ~/.zsh/aliases.zsh
 
-# Private, client-specific config
+# Private, client-specific config, aliases, etc.
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private

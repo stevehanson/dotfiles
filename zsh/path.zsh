@@ -1,10 +1,10 @@
-# ensure dotfiles bin directory is loaded first
-PATH="$HOME/.bin:$HOME/.bin.private:/usr/local/sbin:$PATH"
-
-# load ASDF version manager
+# load ASDF version manager -- prepends to front of path
 if [ -d "$HOME/.asdf" ]; then
   . $HOME/.asdf/asdf.sh
 fi
+
+# ensure dotfiles bin directory is loaded first, before asdf
+PATH="$HOME/.bin:$HOME/.bin.private:/usr/local/sbin:$PATH"
 
 # mkdir .git/safe in the root of repositories you trust
 PATH=".git/safe/../../bin:$PATH"

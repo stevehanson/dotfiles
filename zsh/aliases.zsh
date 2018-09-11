@@ -21,8 +21,8 @@ alias path='echo $PATH | tr -s ":" "\n"' # Pretty print the path
 # == Git =======================================================================
 
 alias g-="git checkout -"
-alias ga="git add "
-alias gp="git p"
+alias ga="git add ."
+alias gp="git push"
 alias gamend="git commit --amend --no-edit"
 alias gb="git branch --sort=-committerdate --color | head"
 alias gc="git commit"
@@ -34,11 +34,12 @@ alias gd="git diff"
 alias gds="git diff --cached"
 alias gdd="git branch -d"
 alias gl="git log -n 15"
-alias go="git checkout "
+alias go="git checkout"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"
+alias gra="git rebase --abort"
 alias grh="git reset --hard"
-alias gs="git status "
+alias gs="git status"
 alias gsa="git stash apply"
 alias guncommit="git reset --soft HEAD^"
 alias gunc="guncommit"
@@ -57,6 +58,11 @@ alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/serv
 # run this if getting an error starting postgres after os x crash
 alias pgdeletepid="rm /usr/local/var/postgres/postmaster.pid"
 
+# To dump DB:
+# pg_dump my_db > my_dump_db
+
+# To restore from a dump, drop and recreate the DB, then:
+# psql -d my_db -f my_dump_db
 
 # == Rails =====================================================================
 

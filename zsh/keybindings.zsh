@@ -9,7 +9,7 @@ bindkey "^F" vi-cmd-mode
 bindkey -M viins 'jk' vi-cmd-mode
 
 # handy keybindings
-bindkey "^A" beginning-of-line
+bindkey "^W" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^K" kill-line
 bindkey "^R" history-incremental-search-backward

@@ -93,9 +93,6 @@ nnoremap <leader>q gqip
 nnoremap <leader>ve :vsplit ~/dotfiles/vimrc<CR>
 nnoremap <leader>vs :source $MYVIMRC<CR> \| :noh<CR> \| :echo "vimrc reloaded 🌞"<CR>
 
-" run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<Space>
-
 " bind K to grep word under cursor
 nnoremap K :Ag <C-R><C-W><CR>
 
