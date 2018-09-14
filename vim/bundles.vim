@@ -1,20 +1,6 @@
-if &compatible
-  set nocompatible
-end
-
-" Remove declared plugins
-function! s:UnPlug(plug_name)
-  if has_key(g:plugs, a:plug_name)
-    call remove(g:plugs, a:plug_name)
-  endif
-endfunction
-command!  -nargs=1 UnPlug call s:UnPlug(<args>)
-
 let g:has_async = v:version >= 800 || has('nvim')
-
 call plug#begin('~/.vim/bundle')
 
-" Define bundles via Github repos
 Plug 'christoomey/vim-run-interactive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elixir-lang/vim-elixir'
@@ -46,12 +32,16 @@ Plug 'junegunn/fzf.vim'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'cohama/lexima.vim'     " Auto-pairs
+Plug 'jiangmiao/auto-pairs'
 Plug 'kana/vim-textobj-line' " Adds 'il' and 'al'
 
 " searching
 Plug 'mileszs/ack.vim'
 Plug 'haya14busa/incsearch.vim'
+
+" find, replace with odd plurals and caps, eg ":%S/dog{,s}/child{,ren}/g"
+Plug 'tpope/vim-abolish'
+
 " multi-char "f" command using "s"
 " disabled while I figure out if I want to use
 " Plug 'justinmk/vim-sneak'
@@ -93,9 +83,6 @@ Plug 'honza/vim-snippets'
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
-
-" find, replace with odd plurals, eg ":%Sub/dog{,s}/child{,ren}/g"
-Plug 'tpope/vim-abolish'
 
 " autocomplete
 if has('nvim')

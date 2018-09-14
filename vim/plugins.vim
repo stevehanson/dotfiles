@@ -37,6 +37,10 @@ nnoremap <leader>ff :ALEFix<CR>
 nnoremap ]r :ALENextWrap<CR>
 nnoremap [r :ALEPreviousWrap<CR>
 
+" == Auto Pairs ================================================================
+
+" Note: To insert quote/paren without auto-match, type C-v first
+" let g:AutoPairsShortcutFastWrap = "<M-y>"
 
 " == Ctrl-P ====================================================================
 
@@ -97,10 +101,6 @@ map *  <Plug>(incsearch-nohl-*)
 " map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
-
-" == Lexima ====================================================================
-
-" Note: To insert quote/paren without auto-match, type C-v first
 
 " == MatchIt ===================================================================
 

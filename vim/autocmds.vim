@@ -15,4 +15,7 @@ augroup shanson
   autocmd BufRead,BufNewFile vimrc.local set filetype=vim
   autocmd BufRead,BufNewFile gitconfig set filetype=gitconfig
   autocmd BufRead,BufNewFile aliases,*/zsh/configs/*,*bin/* set filetype=sh
+
+  " Auto-reload on buffer focus or enter
+  au FocusGained,BufEnter * :silent! !
 augroup END

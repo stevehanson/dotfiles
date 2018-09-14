@@ -7,10 +7,8 @@ brew "zsh-syntax-highlighting"
 brew "zsh-completions"
 brew "fzf"
 brew "ripgrep"
+cask "qlstephen"
 EOF
-
-# Preview plain-text files that don't have extensions in Quick Look
-brew cask install qlstephen
 
 # Install TMUX Plugin Manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

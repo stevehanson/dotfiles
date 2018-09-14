@@ -4,6 +4,7 @@
 
 let mapleader = " "
 syntax on
+set nocompatible
 
 set backspace=2        " Backspace deletes like most programs in insert mode
 set ruler              " Show the cursor position all the time
@@ -11,6 +12,7 @@ set showcmd            " Display incomplete commands
 set incsearch          " Do incremental searching
 set laststatus=2       " Always display the status line
 set autowrite          " Automatically :write before running commands
+set autoread           " Automatically reload externally changed files
 set mouse=a            " Allow using the mouse
 set clipboard=unnamed  " Use system clipboard
 set nojoinspaces       " Use one space, not two, after punctuation.
@@ -26,6 +28,7 @@ set nowritebackup
 set noswapfile
 set splitbelow         " Open new horizontal splits below
 set splitright         " Open vertical splits to right
+set scrolloff=2        " Always show 2 lines above/below cursor
 set history=50
 set wildmode=list:longest,list:full      " Matching in wildmenu
 set list listchars=tab:»·,trail:·,nbsp:· " Display extra whitespace
@@ -71,8 +74,8 @@ nnoremap <Leader>p "0p
 vnoremap $ g_
 
 " Switch tabs
-nnoremap <C-[> gT
-nnoremap <C-]> gt
+nnoremap H gT
+nnoremap L gt
 
 " Switch between the last two files
 nnoremap <Leader><Leader> <C-^>
@@ -84,14 +87,19 @@ noremap <Left>  3<C-W><
 noremap <Right> 3<C-W>>
 
 " Select whole file
-nnoremap <leader>fa ggVG<CR>
+nnoremap <Leader>fa ggVG<CR>
 
-" Reformat wrapping for paragraph
-nnoremap <leader>q gqip
+" Save/Close buffer
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+
+" New Tab
+nnoremap <Leader>nt :tabnew<CR>
+nnoremap <Leader>nv :vsp<CR>
 
 " Edit/source vimrc
-nnoremap <leader>ve :vsplit ~/dotfiles/vimrc<CR>
-nnoremap <leader>vs :source $MYVIMRC<CR> \| :noh<CR> \| :echo "vimrc reloaded 🌞"<CR>
+nnoremap <Leader>ve :vsplit ~/dotfiles/vimrc<CR>
+nnoremap <Leader>vs :source $MYVIMRC<CR> \| :noh<CR> \| :echo "vimrc reloaded 🌞"<CR>
 
 " bind K to grep word under cursor
 nnoremap K :Ag <C-R><C-W><CR>
@@ -99,16 +107,16 @@ nnoremap K :Ag <C-R><C-W><CR>
 " -- Copy file paths to clipboard ----------------------------------------------
 
 " Relative path
-nnoremap <leader>cf :let @+=expand("%")<CR>
+nnoremap <Leader>cf :let @+=expand("%")<CR>
 
 " rspec command for current file
-nnoremap <leader>cr :let @+="rspec " . expand("%")<CR>
+nnoremap <Leader>cr :let @+="rspec " . expand("%")<CR>
 
 " Absolute path
-nnoremap <leader>cF :let @+=expand("%:p")<CR>
+nnoremap <Leader>cF :let @+=expand("%:p")<CR>
 
 " Filename, without path
-nnoremap <leader>ct :let @+=expand("%:t")<CR>
+nnoremap <Leader>ct :let @+=expand("%:t")<CR>
 
 " == gvim config ===============================================================
 
