@@ -65,6 +65,7 @@ nnoremap k gk
 
 " Auto-indent code when pasting with p
 nnoremap p p=`]
+nnoremap <Leader>fP p
 
 " Paste last yanked text, even if have deleted since
 nnoremap <Leader>p "0p

@@ -16,24 +16,32 @@ alias ln="ln -v"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
-alias path='echo $PATH | tr -s ":" "\n"' # Pretty print the path
+alias path='print -l $PATH' # Pretty print the path
+
+# alias "c {x}" to do "cd ~/dev/{x}"
+# tab completion set up in zsh/completion/_c
+function c() { cd ~/dev/$1; }
 
 # == Git =======================================================================
 
 alias g-="git checkout -"
 alias ga="git add ."
+alias gac="git add . && git commit"
 alias gp="git push"
 alias gamend="git commit --amend --no-edit"
 alias gb="git branch --sort=-committerdate --color | head"
+alias gbg="git branch --all --color --sort=-committerdate | grep -i"
 alias gc="git commit"
 alias gcf="git commit --fixup"
-alias gwip="git commit --m \"WIP\""
+alias gwip="git commit -m \"WIP\""
 alias gcm="git checkout master"
 alias gcd="git checkout development"
 alias gd="git diff"
 alias gds="git diff --cached"
 alias gdd="git branch -d"
+alias gDD="git branch -D"
 alias gl="git log -n 15"
+alias glg="git log -n 20 --grep"
 alias go="git checkout"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"

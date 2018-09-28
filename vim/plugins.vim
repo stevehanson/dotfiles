@@ -8,12 +8,15 @@ if !exists(":Ag")
 end
 
 " == Airline ===================================================================
-
+function! AirlineInit()
+  let g:airline_section_z = airline#section#create(['linenr', ':%2v'])
+endfunction
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
-let g:airline_section_z = airline#section#create(['linenr', ':%2v'])
+let g:airline_section_z = '' " Hide until init function has been called
+autocmd VimEnter * call AirlineInit()
 let g:airline#extensions#hunks#enabled = 0 " Turn off the git file status
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#left_sep = ' '
@@ -23,7 +26,7 @@ let g:airline#extensions#hunks#enabled = 0 " Turn off the git file status
 " == ALE =======================================================================
 
 let g:ale_fixers = {
-      \   'javascript': ['eslint'],
+      \   'javascript': ['eslint', 'prettier'],
       \   'ruby': ['rubocop'],
       \}
 let g:ale_linters = {
@@ -31,6 +34,7 @@ let g:ale_linters = {
       \   'ruby': ['ruby'],
       \}
 
+let g:ale_javascript_prettier_use_local_config = 1
 nnoremap <leader>ff :ALEFix<CR>
 
 " Move between linting errors
@@ -120,6 +124,7 @@ vnoremap <C-_> <plug>NERDCommenterToggle
 " Open current file in NERDTree
 nnoremap <C-t> :NERDTreeFind<CR>
 
+silent! nunmap <C-\>
 nnoremap <C-\> :NERDTreeToggle<CR>
 
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
