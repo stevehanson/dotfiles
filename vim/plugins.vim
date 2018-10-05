@@ -39,9 +39,9 @@ nnoremap ]r :ALENextWrap<CR>
 nnoremap [r :ALEPreviousWrap<CR>
 
 " == Auto Pairs ================================================================
-
-" Note: To insert quote/paren without auto-match, type C-v first
-" let g:AutoPairsShortcutFastWrap = "<M-y>"
+"
+" Note: To insert quote/paren without auto-match, type C-v first or can usually
+" use vim-surround instead with visual selection and "S"
 
 " == Ctrl-P ====================================================================
 
@@ -55,6 +55,7 @@ let g:ctrlp_use_caching = 0
 " == Deoplete ==================================================================
 
 let g:deoplete#enable_at_startup = 1
+" call deoplete#custom#set('ultisnips', 'matchers', ['matcher_fuzzy'])
 
 " == Emmet =====================================================================
 
@@ -122,7 +123,7 @@ vnoremap <C-_> <plug>NERDCommenterToggle
 nnoremap <C-t> :NERDTreeFind<CR>
 
 silent! nunmap <C-\>
-nnoremap <C-\> :NERDTreeToggle<CR>
+nnoremap <C-\> :NERDTreeClose<CR>
 
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 let NERDTreeMinimalUI = 1         " don't show help at top
@@ -154,7 +155,7 @@ let g:tmuxline_preset = {
 
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
-nnoremap <silent> <leader>T :TestLast<CR>
+nnoremap <silent> <leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <Leader>gt :TestVisit<CR>
 
@@ -173,9 +174,10 @@ endif
 
 " == Ultisnips =================================================================
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippet"]
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 " == Vim Eighties ==============================================================
 

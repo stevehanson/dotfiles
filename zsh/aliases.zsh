@@ -40,7 +40,7 @@ alias gd="git diff"
 alias gds="git diff --cached"
 alias gdd="git branch -d"
 alias gDD="git branch -D"
-alias gl="git log -n 15"
+alias gl="git log -n 10"
 alias glg="git log -n 20 --grep"
 alias go="git checkout"
 alias gri="git rebase -i"
@@ -51,6 +51,8 @@ alias gs="git status"
 alias gsa="git stash apply"
 alias guncommit="git reset --soft HEAD^"
 alias gunc="guncommit"
+alias gcomp="hub compare"
+alias gcompd="hub compare -b development"
 
 # == Heroku ====================================================================
 

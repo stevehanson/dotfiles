@@ -56,8 +56,18 @@ let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like block tags
 
 " Note: Look up mappings with `:map`, eg: `:map <C-P>`
 
+" -- Insert mode ---------------------------------------------------------------
+
 " Map jk to escape
 inoremap jk <Esc>
+
+" -- Visual mode ---------------------------------------------------------------
+
+" Move to end of line, without newline character when in visual mode
+" Can also use il, al provided by vim-textobj-line plugin for selecting lines
+vnoremap $ g_
+
+" -- Normal mode ---------------------------------------------------------------
 
 " Make j and k work better with wrapped text
 nnoremap j gj
@@ -88,7 +98,7 @@ noremap <Left>  3<C-W><
 noremap <Right> 3<C-W>>
 
 " Select whole file
-nnoremap <Leader>fa ggVG<CR>
+nnoremap <Leader>fa ggVG
 
 " Save/Close buffer
 nnoremap <Leader>w :w<CR>

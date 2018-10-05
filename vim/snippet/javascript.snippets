@@ -1,0 +1,58 @@
+snippet react "React Component"
+import React from 'react'
+import PropTypes from 'prop-types'
+
+class $1 extends React.Component \{
+	static propTypes = \{
+		$2
+	\}
+
+	render() \{
+		$3
+	\}
+\}
+endsnippet
+
+snippet react_redux "React Component with Redux"
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+class $1 extends React.Component \{
+	static propTypes = \{
+		$2
+	\}
+
+	render() \{
+		$0
+	\}
+\}
+
+const mapStateToProps = state => (\{
+	$3
+\})
+
+const mapDispatchToProps = \{
+	$4
+\}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)($1)
+endsnippet
+
+snippet redux_connect "Redux connect"
+const mapStateToProps = state => (\{
+	$2
+\})
+
+const mapDispatchToProps = \{
+	$3
+\}
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)($1)
+endsnippet
