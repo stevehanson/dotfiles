@@ -31,9 +31,10 @@ Plug 'junegunn/fzf.vim'
 " text stuff
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'bkad/CamelCaseMotion'
+Plug 'kana/vim-textobj-line' " Adds 'il' and 'al'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kana/vim-textobj-line' " Adds 'il' and 'al'
 
 " searching
 Plug 'mileszs/ack.vim'

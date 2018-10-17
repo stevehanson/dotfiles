@@ -43,6 +43,11 @@ nnoremap [r :ALEPreviousWrap<CR>
 " Note: To insert quote/paren without auto-match, type C-v first or can usually
 " use vim-surround instead with visual selection and "S"
 
+" == CamelCaseMotion ===========================================================
+
+omap <silent> i_ <Plug>CamelCaseMotion_iw
+xmap <silent> i_ <Plug>CamelCaseMotion_iw
+
 " == Ctrl-P ====================================================================
 
 " List open buffers
