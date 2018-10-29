@@ -145,6 +145,13 @@ autocmd bufenter *
   \   q |
   \ endif
 
+" == SplitJoin =================================================================
+
+let g:splitjoin_ruby_curly_braces = 0
+let g:splitjoin_ruby_hanging_args = 0
+let g:splitjoin_ruby_trailing_comma = 1
+let g:splitjoin_ruby_options_as_arguments = 1
+
 " == Tmuxline ==================================================================
 
 let g:tmuxline_powerline_separators = 0
@@ -185,7 +192,7 @@ let g:UltiSnipsJumpForwardTrigger="<C-j>"
 let g:UltiSnipsJumpBackwardTrigger="<C-k>"
 
 " == Vim Eighties ==============================================================
-
+let g:eighties_enabled = 1
 let g:eighties_extra_width = 1 " Add some extra room
 
 " == Vim Multiple Cursors ======================================================
