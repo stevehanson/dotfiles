@@ -29,10 +29,15 @@ alias ga="git add ."
 alias gac="git add . && git commit"
 alias gp="git push"
 alias gamend="git commit --amend --no-edit"
+alias gam="gamend"
+alias gaam="git add . && gamend"
 alias gb="git branch --sort=-committerdate --color | head"
+alias gb20="gb -n 20"
 alias gbg="git branch --all --color --sort=-committerdate | grep -i"
+alias gcg="git log --all --grep"
 alias gc="git commit"
 alias gcf="git commit --fixup"
+alias gempty="git commit --allow-empty"
 alias gwip="git commit -m \"WIP\""
 alias gcm="git checkout master"
 alias gcd="git checkout development"
@@ -43,6 +48,7 @@ alias gDD="git branch -D"
 alias gl="git log -n 10"
 alias glg="git log -n 20 --grep"
 alias go="git checkout"
+alias gpr="git pull --rebase origin master"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"
 alias gra="git rebase --abort"
@@ -53,12 +59,22 @@ alias guncommit="git reset --soft HEAD^"
 alias gunc="guncommit"
 alias gcomp="hub compare"
 alias gcompd="hub compare -b development"
+alias gmv="git branch -m"
+alias gup='git branch --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD) $(git rev-parse --abbrev-ref HEAD)'
 
 # == Heroku ====================================================================
 
 alias hconfig="heroku config --remote"
 alias hc="heroku run rails c --remote"
 alias hm="heroku run rake db:migrate --remote"
+
+# == Node ======================================================================
+
+alias yys="yarn && yarn start"
+alias ya="yarn add"
+alias yad="yarn add --dev"
+alias nunfuck="rm -rf node_modules && npm install"
+alias yunfuck="rm -rf node_modules && yarn install"
 
 # == Postgres ==================================================================
 
@@ -99,3 +115,7 @@ alias t="mux s"
 alias tmk="tmux kill-session -t"
 alias tmks="tmux kill-server"
 alias tn="tmux new-session -d -s"
+
+# == vim =======================================================================
+
+alias retag='ctags -R --exclude=.gitignore --exclude=.git --exclude=log --exclude=tmp *'

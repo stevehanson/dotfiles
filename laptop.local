@@ -1,6 +1,7 @@
 #!/bin/sh
 
 brew bundle --file=- <<EOF
+brew "neovim/neovim/neovim"
 brew "diff-so-fancy"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
@@ -8,6 +9,7 @@ brew "zsh-completions"
 brew "fzf"
 brew "ripgrep"
 cask "qlstephen"
+cask "karabiner"
 EOF
 
 # Install TMUX Plugin Manager
@@ -21,6 +23,12 @@ fi
 # Install 256 color italic iterm profiles 
 tic ~/dotfiles/iterm/xterm-256color-italic.terminfo
 tic ~/dotfiles/iterm/tmux-256color-italic.terminfo
+
+# Configure nvim
+# https://robots.thoughtbot.com/my-life-with-neovim
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
 ###############################################################################
 # Mac customizations                                                          #

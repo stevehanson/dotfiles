@@ -99,6 +99,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 " language grammars
 Plug 'mxw/vim-jsx'
 Plug 'rhysd/vim-crystal'
+Plug 'leafgarland/typescript-vim'
 
 " syntax themes
 Plug 'joshdick/onedark.vim'

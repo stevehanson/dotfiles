@@ -12,7 +12,7 @@ bindkey -M viins 'jk' vi-cmd-mode
 bindkey "^W" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^K" kill-line
-bindkey "^R" history-incremental-search-backward
+# bindkey "^R" history-incremental-search-backward
 bindkey "^P" history-search-backward
 bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word

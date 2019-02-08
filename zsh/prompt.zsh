@@ -20,4 +20,4 @@ fi
 
 # Use Pure prompt
 autoload -U promptinit; promptinit
-prompt pure
+# prompt pure
