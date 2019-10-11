@@ -94,8 +94,8 @@ nnoremap <Leader><Leader> <C-^>
 " Use arrow keys to resize windows
 noremap <Up>    <C-W>+
 noremap <Down>  <C-W>-
-noremap <Left>  3<C-W><
-noremap <Right> 3<C-W>>
+noremap <Left>  5<C-W><
+noremap <Right> 5<C-W>>
 
 " Select whole file
 nnoremap <Leader>fa ggVG
@@ -111,9 +111,6 @@ nnoremap <Leader>nv :vsp<CR>
 " Edit/source vimrc
 nnoremap <Leader>ve :vsplit ~/dotfiles/vimrc<CR>
 nnoremap <Leader>vs :source $MYVIMRC<CR> \| :noh<CR> \| :echo "vimrc reloaded 🌞"<CR>
-
-" bind K to grep word under cursor
-nnoremap K :Ag <C-R><C-W><CR>
 
 " -- Copy file paths to clipboard ----------------------------------------------
 

@@ -52,6 +52,12 @@ Plug 'tpope/vim-abolish'
 " auto-apply editorconfig settings on save
 Plug 'editorconfig/editorconfig-vim'
 
+" Run Prettier on save
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html']
+\}
+
 " code expansion via shortcuts
 Plug 'mattn/emmet-vim'
 
@@ -100,6 +106,8 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'mxw/vim-jsx'
 Plug 'rhysd/vim-crystal'
 Plug 'leafgarland/typescript-vim'
+Plug 'keith/swift.vim'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " syntax themes
 Plug 'joshdick/onedark.vim'

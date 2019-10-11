@@ -1,11 +1,16 @@
 " Plugin-specific settings go here
 
-" == Ag ===================================================================
+" == Ack.vim ===================================================================
 
-if !exists(":Ag")
-  command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<SPACE>
-end
+" Search with '\'
+nnoremap \ :Ack!<SPACE>
+
+" bind K to grep word under cursor
+nnoremap K :Ack! <C-R><C-W><CR>
+
+if executable('ag')
+  let g:ackprg = 'rg --vimgrep'
+endif
 
 " == Airline ===================================================================
 
@@ -32,6 +37,7 @@ let g:ale_linters = {
       \}
 
 let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_enabled = 0
 nnoremap <leader>ff :ALEFix<CR>
 
 " Move between linting errors
@@ -145,6 +151,11 @@ autocmd bufenter *
   \   q |
   \ endif
 
+" == Prettier ==================================================================
+
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
 " == SplitJoin =================================================================
 
 let g:splitjoin_ruby_curly_braces = 0
@@ -174,15 +185,17 @@ nnoremap <silent> <Leader>gt :TestVisit<CR>
 if exists('$TMUX')
   let g:test#strategy = 'vimux' " run tests in a split tmux pane if available
   let g:VimuxUseNearest = 0     " open test panes in new pane
-
-  " zoom the runner
-  map <Leader>vz :VimuxZoomRunner<CR>
-
-  " close runner
-  map <Leader>vq :VimuxCloseRunner<CR>
 elseif has('nvim')
   let test#strategy = "neovim"
 endif
+
+" == Vimux =====================================================================
+
+map <Leader>vo :call VimuxOpenRunner()<CR>
+" then unzoom by navigating out of it
+map <Leader>vz :VimuxZoomRunner<CR>
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
 
 " == Ultisnips =================================================================
 
