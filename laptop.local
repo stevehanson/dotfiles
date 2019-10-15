@@ -12,6 +12,9 @@ cask "qlstephen"
 cask "karabiner"
 EOF
 
+# Install SDKMan, Java version manager
+curl -s "https://get.sdkman.io" | bash
+
 # Install TMUX Plugin Manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

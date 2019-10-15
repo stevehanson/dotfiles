@@ -16,3 +16,7 @@ source ~/.zsh/aliases.zsh
 
 # Private, client-specific config, aliases, etc.
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private
+
+# Source Java SDK Manager
+export SDKMAN_DIR="/Users/shanson/.sdkman"
+[[ -s "/Users/shanson/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shanson/.sdkman/bin/sdkman-init.sh"
