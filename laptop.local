@@ -4,12 +4,15 @@ brew bundle --file=- <<EOF
 brew "neovim/neovim/neovim"
 brew "diff-so-fancy"
 brew "zsh-autosuggestions"
-brew "zsh-syntax-highlighting"
 brew "zsh-completions"
 brew "fzf"
 brew "ripgrep"
-cask "qlstephen"
 cask "karabiner"
+cask "ngrok"
+cask "qlstephen"
+cask "qlmarkdown"
+cask "quicklook-json"
+cask "qlimagesize"
 EOF
 
 # Install SDKMan, Java version manager
