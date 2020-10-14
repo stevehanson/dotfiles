@@ -33,8 +33,6 @@
   pretty = %C(yellow)%h%Creset %C(bold cyan)%d%Creset %s %C(red)(%an, %cr)%Creset
 [init]
   templatedir = ~/.git_template
-[merge]
-  ff = only
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
