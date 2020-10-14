@@ -2,6 +2,7 @@
 
 brew bundle --file=- <<EOF
 brew "neovim/neovim/neovim"
+brew "bat"
 brew "diff-so-fancy"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
