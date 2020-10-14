@@ -8,6 +8,7 @@ alias ssh="TERM=xterm-256color ssh"
 alias sz="source ~/.zshrc"
 alias df="cd ~/dotfiles"
 alias vd="vim ~/dotfiles"
+alias ng="ngrok http 3000"
 
 # == Unix ======================================================================
 
@@ -30,8 +31,7 @@ alias ga="git add ."
 alias gac="git add . && git commit"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
-alias gamend="git commit --amend --no-edit"
-alias gam="gamend"
+alias gam="git commit --amend --no-edit"
 alias gaam="git add . && gamend"
 alias gb="git branch --sort=-committerdate --color | head"
 alias gdbak="git branch -D bak &>/dev/null"
@@ -52,7 +52,7 @@ alias gl="git log -n 10"
 alias glg="git log -n 20 --grep"
 alias go="git checkout"
 alias gpr="git pull --rebase"
-alias grom="git rebase origin/master"
+alias grom="git fetch && git rebase origin/master"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"
 alias gra="git rebase --abort"
@@ -61,18 +61,26 @@ alias gs="git status"
 alias gsa="git stash apply"
 alias guncommit="git reset --soft HEAD^"
 alias gunc="guncommit"
-alias gcomp="hub compare"
+alias gcomp="gh pr create --web"
 alias gcompd="hub compare -b development"
 alias gpulls="hub browse -- pulls"
 alias gmv="git branch -m"
 alias gcurrent="git rev-parse --abbrev-ref HEAD"
 alias gup='git branch --set-upstream-to=origin/$(gcurrent) $(gcurrent)'
-function co-pr() { git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1; }
 
 # Usage, to rebase current branch off of other branch when other branch has
 # diverged: `gro other-branch last-stale-sha-or-branch-before-current-branch-changes`
 # Applies commits after the stale sha on top of `other-branch`
 function gro() { git rebase --onto $1 $2 $(gcurrent) }
+function gro1() { gro $1 HEAD~1 $(gcurrent) }
+function gro2() { gro $1 HEAD~2 $(gcurrent) }
+function gro3() { gro $1 HEAD~3 $(gcurrent) }
+function dep() { git push -f ${1:staging} $(gcurrent):master }
+
+# == GitHub ====================================================================
+alias ghpr="gh pr view --web"
+alias ghs="gh pr status"
+alias ghco="gh pr checkout"
 
 # == Heroku ====================================================================
 
@@ -82,6 +90,7 @@ alias hm="heroku run rake db:migrate --remote"
 
 # == Node ======================================================================
 
+alias y="yarn"
 alias ys="yarn start"
 alias yys="yarn && yarn start"
 alias ya="yarn add"
@@ -90,6 +99,7 @@ alias nunfuck="rm -rf node_modules && npm install"
 alias yunfuck="rm -rf node_modules && yarn install"
 alias yt="yarn test"
 alias ytp="yarn test --testPathPattern"
+alias ysf="yarn standard --fix"
 
 # == React / React Native ======================================================
 
@@ -100,7 +110,7 @@ alias rna="react-native run-android"
 # == Postgres ==================================================================
 
 alias pglog="tail -f /usr/local/var/postgres/server.log"
-alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstart="postgres -D /usr/local/var/postgres"
 
 # run this if getting an error starting postgres after os x crash
 alias pgdeletepid="rm /usr/local/var/postgres/postmaster.pid"
@@ -115,7 +125,7 @@ alias pgdeletepid="rm /usr/local/var/postgres/postmaster.pid"
 
 alias r="rails s"
 alias rc="rails c"
-alias s="rspec"
+alias s="rspec --format documentation"
 alias ms="make start"
 alias routes="rails routes"
 alias routesg="routes | grep"
