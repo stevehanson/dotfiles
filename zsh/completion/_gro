@@ -1,0 +1,6 @@
+#compdef _gro gro
+
+function _gro {
+  branches=$(git branch --sort=-committerdate -l | cut -c3-)
+  compadd $(compgen -W "$branches" -- "$2")
+}

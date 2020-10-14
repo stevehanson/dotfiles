@@ -1,5 +1,13 @@
+source ~/.zplug/init.zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zplug/repos/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# zsh-syntax-highlighting
+typeset -A ZSH_HIGHLIGHT_PATTERNS
+typeset -A ZSH_HIGHLIGHT_REGEXP
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main pattern regexp)
+ZSH_HIGHLIGHT_REGEXP+=('(gc|git commit|gamend|gam) -a?m \"[^"]{52,}' 'fg=red,bold')
 
 # zsh-autosuggest -- select suggestion with Ctrl+N
 bindkey '' autosuggest-execute
@@ -9,3 +17,16 @@ bindkey '' autosuggest-execute
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_DEFAULT_OPS='--bind up:preview-up,down:preview-down'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Open branch fuzzy finder with ^G^B
+_fuzzy_git_branches() {
+  zle -U "$(
+    git branch --color=always --sort=-committerdate | \
+    grep -v '^* ' | \
+    grep -v '^\s\+master' | \
+    fzf-tmux --reverse --ansi --select-1 | \
+    sed -E 's/^[ \t]*//'
+  )"
+}
+zle -N fuzzy-git-branches _fuzzy_git_branches
+bindkey '^G^B' fuzzy-git-branches

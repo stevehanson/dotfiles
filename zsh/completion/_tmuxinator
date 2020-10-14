@@ -1,4 +1,4 @@
-#compdef tmuxinator
+#compdef _tmuxinator tmuxinator mux
 
 _tmuxinator() {
   local commands projects
@@ -19,8 +19,6 @@ _tmuxinator() {
 
   return
 }
-
-compdef _tmuxinator tmuxinator mux
 
 # Local Variables:
 # mode: Shell-Script

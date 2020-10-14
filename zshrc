@@ -20,3 +20,5 @@ source ~/.zsh/aliases.zsh
 # Source Java SDK Manager
 export SDKMAN_DIR="/Users/shanson/.sdkman"
 [[ -s "/Users/shanson/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shanson/.sdkman/bin/sdkman-init.sh"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
