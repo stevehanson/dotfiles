@@ -9,8 +9,13 @@ nnoremap \ :Ack!<SPACE>
 nnoremap K :Ack! <C-R><C-W><CR>
 
 if executable('ag')
-  let g:ackprg = 'rg --vimgrep'
+  let g:ackprg = 'rg --vimgrep --pcre2'
 endif
+
+" when opening in vertical split, open to the right of NERDTree
+let g:ack_mappings = {
+      \  'v':  '<C-W><CR><C-W>L<C-W>p<C-W>J<C-W>p',
+      \ 'gv': '<C-W><CR><C-W>L<C-W>p<C-W>J' }
 
 " == Airline ===================================================================
 
@@ -19,6 +24,7 @@ let g:airline_skip_empty_sections = 1
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline_section_x = '' " Don't show file type
 let g:airline_section_z = airline#section#create(['linenr', ':%2v'])
+let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#hunks#enabled = 0 " Turn off the git file status
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#left_sep = ' '
@@ -28,16 +34,17 @@ let g:airline#extensions#hunks#enabled = 0 " Turn off the git file status
 " == ALE =======================================================================
 
 let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \   'javascript': ['eslint', 'prettier'],
-      \   'ruby': ['rubocop'],
+      \   'ruby': ['standardrb'],
       \}
 let g:ale_linters = {
       \   'javascript': ['eslint', 'prettier'],
       \   'ruby': ['ruby'],
       \}
-
-let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_enabled = 0
+let g:ale_fix_on_save = 1
+let g:ale_enabled = 1
+let g:ale_completion_tsserver_autoimport = 1
 nnoremap <leader>ff :ALEFix<CR>
 
 " Move between linting errors
@@ -56,9 +63,8 @@ xmap <silent> i_ <Plug>CamelCaseMotion_iw
 
 " == Ctrl-P ====================================================================
 
-" List open buffers
-nnoremap <C-b> :CtrlPBuffer<cr>
-
+" disable completely for now in favor of fzf
+let g:loaded_ctrlp = 1
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_user_command = 'rg %s --files --hidden --color=never --glob ""'
 let g:ctrlp_use_caching = 0
@@ -81,7 +87,11 @@ let g:user_emmet_settings = {
 
 " == FZF =======================================================================
 
-nmap <silent> <leader>P :GFiles<CR>
+nnoremap <C-b> :Buffers<cr>
+nnoremap <C-p> :Files<cr>
+nnoremap <C-g> :GFiles?<cr>
+nnoremap <C-f> :Ag<CR>
+
 let g:fzf_colors =
       \ { 'fg':      ['fg', 'Normal'],
       \ 'bg':      ['bg', 'Normal'],
@@ -96,9 +106,18 @@ let g:fzf_colors =
       \ 'marker':  ['fg', 'Keyword'],
       \ 'spinner': ['fg', 'Label'],
       \ 'header':  ['fg', 'Comment'] }
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-      \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+" To disable preview window, use empty string
+let g:fzf_preview_window = 'right:60%'
+let g:fzf_files_options = '--reverse'
+let g:fzf_preview_window = ''
+let g:fzf_layout = { 'window': { 'yoffset': 0.1, 'width': 0.6, 'height': 0.4 } }
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-j> <plug>(fzf-complete-path)
+imap <c-x><c-f> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " == Inc Search ================================================================
 
@@ -133,8 +152,7 @@ vnoremap <C-_> <plug>NERDCommenterToggle
 " Open current file in NERDTree
 nnoremap <C-t> :NERDTreeFind<CR>
 
-silent! nunmap <C-\>
-nnoremap <C-\> :NERDTreeClose<CR>
+nnoremap <leader>nc :NERDTreeClose<CR>
 
 let NERDTreeStatusline="%{matchstr(getline('.'), '\\s\\zs\\w\\(.*\\)')}"
 let NERDTreeMinimalUI = 1         " don't show help at top
@@ -154,7 +172,7 @@ autocmd bufenter *
 " == Prettier ==================================================================
 
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 " == SplitJoin =================================================================
 
@@ -181,6 +199,7 @@ nnoremap <silent> <Leader>s :TestNearest<CR>
 nnoremap <silent> <leader>l :TestLast<CR>
 nnoremap <silent> <Leader>a :TestSuite<CR>
 nnoremap <silent> <Leader>gt :TestVisit<CR>
+let test#ruby#rspec#executable = 'bundle exec rspec'
 
 if exists('$TMUX')
   let g:test#strategy = 'vimux' " run tests in a split tmux pane if available

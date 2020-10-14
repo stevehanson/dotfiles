@@ -51,6 +51,7 @@ set grepformat=%f:%l:%c:%m,%f:%l:%m " Output results: file:line:column:message
 
 filetype plugin indent on        " Detect and load filetypes and indent config
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like block tags
+let g:python3_host_prog = '/usr/local/bin/python3.7'
 
 " == General key mappings ======================================================
 
@@ -103,7 +104,6 @@ nnoremap <Leader>fa ggVG
 " Save/Close buffer
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
-
 " New Tab
 nnoremap <Leader>nt :tabnew<CR>
 nnoremap <Leader>nv :vsp<CR>
@@ -111,6 +111,9 @@ nnoremap <Leader>nv :vsp<CR>
 " Edit/source vimrc
 nnoremap <Leader>ve :vsplit ~/dotfiles/vimrc<CR>
 nnoremap <Leader>vs :source $MYVIMRC<CR> \| :noh<CR> \| :echo "vimrc reloaded 🌞"<CR>
+
+" Format JSON
+nnoremap <Leader>fj :%!python -m json.tool<CR>ggVG=
 
 " -- Copy file paths to clipboard ----------------------------------------------
 
