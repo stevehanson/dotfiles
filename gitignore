@@ -12,3 +12,7 @@ tmp/**/*
 !tmp/cache/.keep
 *.pyc
 .vscode
+
+
+.tool-versions
+bin/rspec

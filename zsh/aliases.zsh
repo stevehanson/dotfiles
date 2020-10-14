@@ -75,6 +75,7 @@ function gro() { git rebase --onto $1 $2 $(gcurrent) }
 function gro1() { gro $1 HEAD~1 $(gcurrent) }
 function gro2() { gro $1 HEAD~2 $(gcurrent) }
 function gro3() { gro $1 HEAD~3 $(gcurrent) }
+function gpm() { echo "git push ${1:staging} $(gcurrent):master" }
 function dep() { git push -f ${1:staging} $(gcurrent):master }
 
 # == GitHub ====================================================================
