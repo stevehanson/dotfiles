@@ -15,6 +15,7 @@ set autowrite          " Automatically :write before running commands
 set autoread           " Automatically reload externally changed files
 set mouse=a            " Allow using the mouse
 set clipboard=unnamed  " Use system clipboard
+set inccommand=nosplit " show preview while searching and replacing
 set nojoinspaces       " Use one space, not two, after punctuation.
 set number             " Show line numbers
 set numberwidth=5      " Consistent width

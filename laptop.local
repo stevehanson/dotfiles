@@ -8,6 +8,7 @@ brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "fzf"
 brew "ripgrep"
+brew "tokei"
 cask "karabiner"
 cask "ngrok"
 cask "qlstephen"
@@ -27,7 +28,7 @@ if [ -r "$HOME/.rcrc" ]; then
   rcup
 fi
 
-# Install 256 color italic iterm profiles 
+# Install 256 color italic iterm profiles
 tic ~/dotfiles/iterm/xterm-256color-italic.terminfo
 tic ~/dotfiles/iterm/tmux-256color-italic.terminfo
 

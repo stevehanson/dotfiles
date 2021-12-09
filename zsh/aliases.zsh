@@ -5,6 +5,7 @@ alias a="atom ."
 alias safe="mkdir .git/safe"
 alias vim="nvim"
 alias ssh="TERM=xterm-256color ssh"
+alias heroku="TERM=xterm-256color heroku"
 alias sz="source ~/.zshrc"
 alias df="cd ~/dotfiles"
 alias vd="vim ~/dotfiles"
@@ -19,6 +20,8 @@ alias e="$EDITOR"
 alias v="$VISUAL"
 alias path='print -l $PATH' # Pretty print the path
 alias fontnames="for file in "$arg"*.{ttf,otf}; do fc-scan --format "%{postscriptname}\n" $file; done"
+function findGem() { find . -type f -name "Gemfile" -exec grep -q -e '$1' {} \; -print}
+alias sizeofdir="du -h -d 1" # supply dir after
 
 # alias "c {x}" to do "cd ~/dev/{x}"
 # tab completion set up in zsh/completion/_c
@@ -32,33 +35,34 @@ alias gac="git add . && git commit"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias gam="git commit --amend --no-edit"
-alias gaam="git add . && gamend"
 alias gb="git branch --sort=-committerdate --color | head"
 alias gdbak="git branch -D bak &>/dev/null"
 alias gbak="gdbak; git branch bak"
-alias gb20="gb -n 20"
 alias gbg="git branch --all --color --sort=-committerdate | grep -i"
 alias gc="git commit"
 alias gcf="git commit --fixup"
 alias gempty="git commit --allow-empty"
+alias gfet="git fetch"
 alias gwip="git commit -m \"WIP\""
-alias gcm="git checkout master"
+alias gcm="git checkout main"
 alias gcd="git checkout development"
 alias gd="git diff"
 alias gds="git diff --cached"
 alias gdd="git branch -d"
 alias gDD="git branch -D"
 alias gl="git log -n 10"
-alias glg="git log -n 20 --grep"
+alias glg="git log -n 50 --grep"
 alias go="git checkout"
 alias gpr="git pull --rebase"
 alias grom="git fetch && git rebase origin/master"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"
 alias gra="git rebase --abort"
+alias grs="git rebase --skip"
 alias grh="git reset --hard"
 alias gs="git status"
 alias gsa="git stash apply"
+alias gsl="git stash list | HEAD"
 alias guncommit="git reset --soft HEAD^"
 alias gunc="guncommit"
 alias gcomp="gh pr create --web"
@@ -75,7 +79,17 @@ function gro() { git rebase --onto $1 $2 $(gcurrent) }
 function gro1() { gro $1 HEAD~1 $(gcurrent) }
 function gro2() { gro $1 HEAD~2 $(gcurrent) }
 function gro3() { gro $1 HEAD~3 $(gcurrent) }
-function dep() { git push -f ${1:staging} $(gcurrent):master }
+function gro4() { gro $1 HEAD~4 $(gcurrent) }
+function gro5() { gro $1 HEAD~5 $(gcurrent) }
+function groom() { git fetch && gro origin/main HEAD~$1 $(gcurrent) }
+function grom1() { git fetch && gro origin/main HEAD~1 $(gcurrent) }
+function grom2() { git fetch && gro origin/main HEAD~2 $(gcurrent) }
+function grom3() { git fetch && gro origin/main HEAD~3 $(gcurrent) }
+function grom4() { git fetch && gro origin/main HEAD~4 $(gcurrent) }
+function grom5() { git fetch && gro origin/main HEAD~5 $(gcurrent) }
+
+function install-ruby() { asdf plugin-update ruby && asdf install ruby $1 }
+function install-node() { NODEJS_CHECK_SIGNATURES=no asdf install nodejs  $1 }
 
 # == GitHub ====================================================================
 alias ghpr="gh pr view --web"
@@ -84,9 +98,10 @@ alias ghco="gh pr checkout"
 
 # == Heroku ====================================================================
 
-alias hconfig="heroku config --remote"
+alias hconf="heroku config --remote"
 alias hc="heroku run rails c --remote"
 alias hm="heroku run rake db:migrate --remote"
+alias hl="heroku logs -t --remote"
 
 # == Node ======================================================================
 

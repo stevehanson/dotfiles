@@ -22,7 +22,6 @@ PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # add custom scripts to path
-PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 PATH="$PATH:$HOME/dev/arcanist/arcanist/bin"
 

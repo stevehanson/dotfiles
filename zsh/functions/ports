@@ -1,6 +1,5 @@
 # Find which process is using 3000 or supplied port, then run kill -9 {pid}
 function ports() {
   local port="${1:-3000}"
-    lsof -wni tcp:${port};
+  lsof -wni tcp:${port};
 }
-

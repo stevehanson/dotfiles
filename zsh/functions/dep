@@ -1,0 +1,6 @@
+# deploy to main on remote
+function dep() {
+  local remote="${1:-staging}"
+  echo "git push -f ${remote} $(gcurrent):main"
+  git push -f $remote $(gcurrent):main
+}
