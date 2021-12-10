@@ -1,7 +1,8 @@
 #!/bin/sh
 
 brew bundle --file=- <<EOF
-brew "neovim/neovim/neovim"
+brew "rbenv"
+brew "neovim"
 brew "bat"
 brew "diff-so-fancy"
 brew "zsh-autosuggestions"
@@ -9,7 +10,6 @@ brew "zsh-completions"
 brew "fzf"
 brew "ripgrep"
 brew "tokei"
-cask "karabiner"
 cask "ngrok"
 cask "qlstephen"
 cask "qlmarkdown"
@@ -17,26 +17,33 @@ cask "quicklook-json"
 cask "qlimagesize"
 EOF
 
-# Install SDKMan, Java version manager
+fancy_echo "Installing NVM, node version manager"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+# source ~/.zshrc
+# command -v nvm
+
+fancy_echo "Installing SDKMan, Java version manager"
 curl -s "https://get.sdkman.io" | bash
 
-# Install TMUX Plugin Manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [! -d "~/.tmux/plugins/tpm" ]; then
+  fancy_echo "Installing tmux plugin manager"
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
-if [ -r "$HOME/.rcrc" ]; then
-  fancy_echo "Updating dotfiles ..."
-  rcup
+if [ -r "$HOME/dotfiles/rcrc" ]; then
+  fancy_echo "Installing dotfiles ..."
+  env RCRC=$HOME/dotfiles/rcrc rcup
 fi
 
 # Install 256 color italic iterm profiles
 tic ~/dotfiles/iterm/xterm-256color-italic.terminfo
 tic ~/dotfiles/iterm/tmux-256color-italic.terminfo
 
-# Configure nvim
+fancy_echo "Configuring Neovim"
 # https://robots.thoughtbot.com/my-life-with-neovim
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+ln -sf ~/.vim $XDG_CONFIG_HOME/nvim
+ln -sf ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
 ###############################################################################
 # Mac customizations                                                          #
