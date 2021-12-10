@@ -52,7 +52,7 @@ set grepformat=%f:%l:%c:%m,%f:%l:%m " Output results: file:line:column:message
 
 filetype plugin indent on        " Detect and load filetypes and indent config
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like block tags
-let g:python3_host_prog = '/usr/local/bin/python3.7'
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 " == General key mappings ======================================================
 

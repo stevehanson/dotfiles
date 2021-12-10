@@ -3,11 +3,13 @@ if [ -d "$HOME/.asdf" ]; then
   . $HOME/.asdf/asdf.sh
 fi
 
+export HOMEBREW_ROOT="/opt/homebrew"
 export ANDROID_HOME=~/Library/Android/sdk
 export BAT_CONFIG_PATH=~/.bat.conf
 
-# ensure dotfiles bin directory is loaded first, before asdf
-PATH="$HOME/.bin:$HOME/.bin.private:/usr/local/sbin:$PATH"
+eval "$($HOMEBREW_ROOT/bin/brew shellenv)"
+
+PATH="$HOME/.bin:$HOME/.bin.private:$HOMEBREW_ROOT/sbin:$PATH"
 
 # mkdir .git/safe in the root of repositories you trust
 PATH=".git/safe/../../bin:$PATH"
@@ -23,6 +25,5 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 # add custom scripts to path
 PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-PATH="$PATH:$HOME/dev/arcanist/arcanist/bin"
 
 export -U PATH

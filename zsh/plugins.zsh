@@ -1,6 +1,6 @@
 source ~/.zplug/init.zsh
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOMEBREW_ROOT/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zplug/repos/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # zsh-syntax-highlighting
@@ -28,5 +28,6 @@ _fuzzy_git_branches() {
     sed -E 's/^[ \t]*//'
   )"
 }
+
 zle -N fuzzy-git-branches _fuzzy_git_branches
 bindkey '^G^B' fuzzy-git-branches

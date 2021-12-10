@@ -25,7 +25,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " FZF for file searching and other things..
-Plug '/usr/local/opt/fzf'
+Plug '$HOMEBREW_ROOT/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " text stuff

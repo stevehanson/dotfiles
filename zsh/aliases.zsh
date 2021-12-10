@@ -124,11 +124,11 @@ alias rna="react-native run-android"
 
 # == Postgres ==================================================================
 
-alias pglog="tail -f /usr/local/var/postgres/server.log"
-alias pgstart="postgres -D /usr/local/var/postgres"
+alias pglog="tail -f $HOMEBREW_ROOT/var/postgres/server.log"
+alias pgstart="postgres -D $HOMEBREW_ROOT/var/postgres"
 
 # run this if getting an error starting postgres after os x crash
-alias pgdeletepid="rm /usr/local/var/postgres/postmaster.pid"
+alias pgdeletepid="rm $HOMEBREW_ROOT/var/postgres/postmaster.pid"
 
 # To dump DB:
 # pg_dump my_db > my_dump_db

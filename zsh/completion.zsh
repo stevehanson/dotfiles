@@ -1,9 +1,8 @@
 # load our own completion functions
 fpath=(\
   ~/.zsh/completion \
-  /usr/local/share/zsh-completions \
-  /usr/local/share/zsh/site-functions \
-  ~/dev/arcanist/arcanist/resources/shell/bash-completion
+  $HOMEBREW_ROOT/share/zsh-completions \
+  $HOMEBREW_ROOT/share/zsh/site-functions \
   $fpath\
 )
 
