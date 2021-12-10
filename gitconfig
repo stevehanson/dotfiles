@@ -25,8 +25,8 @@
 [diff]
   colorMoved = zebra
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [fetch]
   prune = true
 [format]
@@ -35,8 +35,8 @@
   templatedir = ~/.git_template
   defaultBranch = main
 [mergetool "sourcetree"]
-  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [push]
   default = current
 [rebase]
@@ -44,3 +44,5 @@
 [user]
   name = Stephen Hanson
   email = shanson@thoughtbot.com
+[pull]
+	rebase = false
