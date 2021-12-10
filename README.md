@@ -58,5 +58,11 @@ ENV variable does not need to be manually specified.
 For more information on what happens with `rcup`, see the [thoughtbot dotfiles
 repo][thoughtfiles].
 
+### Other manual steps
+
+* Generate new SSH key, upload to GitHub, update ~/.ssh/config file with new key
+* Copy relevant config from `~/.ssh/config` of old machine to new machine (eg.
+  SSH names)
+
 [thoughtfiles]: https://github.com/thoughtbot/dotfiles
 [rcm]: https://github.com/thoughtbot/rcm
