@@ -10,16 +10,25 @@ directory.
 
 ## Setting up a new computer
 
+### Install apps
+
+[Install and configure applications](./docs/applications.md)
+
+### Run laptop script
+
 When setting up a new computer, the [thoughtbot
-Laptop](https://github.com/thoughtbot/laptop) script should be used. The
-`laptop.local` script customization is managed in this repo. Clone this
-repo down to `~/dotfiles` and manually copy `laptop.local` to `~/.laptop.local` (`ln -s
-    ~/dotfiles/laptop.local ~/.laptop.local`) and then run the
-Laptop script. 
+Laptop](https://github.com/thoughtbot/laptop) script should be used. This repo
+includes a slightly modified version of the laptop script, and includes further
+customization in `laptop.local`. Clone this repo down to `~/dotfiles` and then
+run the Laptop script with:
+
+```
+> ~/dotfiles/laptop
+```
 
 After the laptop script finishes, continue setting up the dotfiles, according to the instructions.
 
-## Installation
+## Dotfiles Installation
 
 Set zsh as your login shell:
 
@@ -27,9 +36,9 @@ Set zsh as your login shell:
 chsh -s $(which zsh)
 ```
 
-Then, clone or fork this repo into `~/dotfiles`.
+Then, clone or fork this repo into `~/dotfiles` if not already done in the Laptop setup.
 
-Install [rcm][rcm]:
+Install [rcm][rcm] (not required if laptop script was done):
 
 ```bash
 brew tap thoughtbot/formulae
