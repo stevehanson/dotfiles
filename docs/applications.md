@@ -60,12 +60,4 @@ Find the Personal vault in Dropbox->Apps->1Password. Also use the "1Password - r
 
 ### Configure VS Code
 
-Sign in with GitHub to load synced settings.
-
-Install extensions from the `vs-code-extensions.txt` file with:
-
-> cat ~/dotfiles/docs/vs-code-extensions.txt | xargs -n 1 code --install-extension
-
-Update this file when new extensions are added with:
-
-> > code --list-extensions >> ~/dotfiles/docs/vs-code-extensions.txt
+See [VSCode readme](./vscode/README.md)
