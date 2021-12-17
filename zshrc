@@ -21,9 +21,6 @@ source ~/.zsh/aliases.zsh
 export SDKMAN_DIR="/Users/shanson/.sdkman"
 [[ -s "/Users/shanson/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shanson/.sdkman/bin/sdkman-init.sh"
 
-# add scripts from dotfiles/bin to path
-export PATH="$HOME/.bin:$PATH"
-
 # init NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

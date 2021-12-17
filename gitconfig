@@ -17,9 +17,9 @@
 [color]
   ui = auto
 [commit]
-  template = ~/.gitmessage
+	template = ~/.gitmessage
 [core]
-  excludesfile = /Users/shanson/.gitignore
+	excludesfile = /Users/shanson/.gitignore
   autocrlf = input
   pager = diff-so-fancy | less --tabs=4 -RFX
 [diff]
@@ -42,7 +42,7 @@
 [rebase]
   autosquash = true
 [user]
-  name = Stephen Hanson
-  email = shanson@thoughtbot.com
+	name = Stephen Hanson
+	email = shanson@thoughtbot.com
 [pull]
 	rebase = false
