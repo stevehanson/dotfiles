@@ -1,7 +1,6 @@
 # == General ===================================================================
 
 alias st="open -a SourceTree"
-alias a="atom ."
 alias safe="mkdir .git/safe"
 alias vim="nvim"
 alias ssh="TERM=xterm-256color ssh"
@@ -19,7 +18,6 @@ alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL"
 alias path='print -l $PATH' # Pretty print the path
-alias fontnames="for file in "$arg"*.{ttf,otf}; do fc-scan --format "%{postscriptname}\n" $file; done"
 function findGem() { find . -type f -name "Gemfile" -exec grep -q -e '$1' {} \; -print}
 alias sizeofdir="du -h -d 1" # supply dir after
 
@@ -82,14 +80,6 @@ function gro3() { gro $1 HEAD~3 $(gcurrent) }
 function gro4() { gro $1 HEAD~4 $(gcurrent) }
 function gro5() { gro $1 HEAD~5 $(gcurrent) }
 function groom() { git fetch && gro origin/main HEAD~$1 $(gcurrent) }
-function grom1() { git fetch && gro origin/main HEAD~1 $(gcurrent) }
-function grom2() { git fetch && gro origin/main HEAD~2 $(gcurrent) }
-function grom3() { git fetch && gro origin/main HEAD~3 $(gcurrent) }
-function grom4() { git fetch && gro origin/main HEAD~4 $(gcurrent) }
-function grom5() { git fetch && gro origin/main HEAD~5 $(gcurrent) }
-
-function install-ruby() { asdf plugin-update ruby && asdf install ruby $1 }
-function install-node() { NODEJS_CHECK_SIGNATURES=no asdf install nodejs  $1 }
 
 # == GitHub ====================================================================
 alias ghpr="gh pr view --web"
@@ -138,13 +128,11 @@ alias pgdeletepid="rm $HOMEBREW_ROOT/var/postgres/postmaster.pid"
 
 # == Rails =====================================================================
 
-alias r="rails s"
 alias rc="rails c"
-alias s="rspec --format documentation"
 alias ms="make start"
 alias routes="rails routes"
 alias routesg="routes | grep"
-alias rr="routesg"
+alias rr="routes | grep"
 alias rdb="rails db:migrate"
 alias rdbt="rails db:migrate RAILS_ENV=test"
 alias rdbr="rails db:rollback"
