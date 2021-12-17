@@ -6,7 +6,7 @@ export RBENV_ROOT="${HOME}/.rbenv"
 eval "$($HOMEBREW_ROOT/bin/brew shellenv)"
 
 # add scripts from dotfiles/bin to path
-export PATH="$HOME/.bin:$HOME/.bin.private:$PATH"
+export PATH="$HOME/.bin.private:$PATH"
 
 # add homebrew directory to path
 PATH="$HOMEBREW_ROOT/sbin:$PATH"

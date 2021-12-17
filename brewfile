@@ -1,0 +1,64 @@
+# Use `brew bundle --file=~/.brewfile` to install the packages listed below
+
+tap "getsentry/tools"
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "neovim/neovim"
+
+brew "bat" # cat command but with syntax highlighting
+brew "diff-so-fancy" # better diffs
+brew "fzf" # better search
+brew "gh"
+brew "git"
+brew "libffi"
+brew "imagemagick"
+brew "neovim"
+brew "openssl@3"
+brew "libyaml" # should come after openSSL
+brew "postgresql", restart_service: true
+brew "rbenv"
+brew "rcm"
+brew "reattach-to-user-namespace"
+brew "redis", restart_service: true
+brew "ripgrep" # better grep
+brew "starship" # shell prompt
+brew "tmux"
+brew "watchman"
+brew "yarn"
+brew "zsh"
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "getsentry/tools/sentry-cli"
+brew "heroku/brew/heroku"
+
+cask "1password"
+cask "alfred"
+cask "android-studio"
+cask "apptivate" # keyboard shortcuts to launch apps
+cask "dropbox"
+cask "evernote" # not actively using anymore
+cask "figma"
+cask "google-chrome"
+cask "gpg-suite"
+cask "insomnia" # GraphQL/REST client
+cask "karabiner-elements" # remap caps lock to escape/ctrl
+cask "iterm2"
+cask "licecap" # GIF capture tool
+cask "ngrok"
+cask "notion"
+cask "postico" # Postgres client
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "qlstephen"
+cask "quicklook-json"
+cask "slack"
+cask "sourcetree" # git GUI client
+cask "spotify"
+cask "transmit" # FTP client
+cask "tuple" # pair programming
+cask "visual-studio-code"
+cask "zoom"

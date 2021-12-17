@@ -1,19 +1,9 @@
 #!/bin/sh
 
-# Welcome to the thoughtbot laptop script, modified by shanson!
-# Be prepared to turn your laptop (or desktop)
-# into an awesome development machine.
-
-# modifications by shanson:
-# * Removed asdf
-# * Removed vim brew since using nvim
-# * Updated laptop.local path to be in dotfiles directory so no symlink
-#   required (this script gets run prior to rcm)
+# Welcome to shanson's laptop script, modified from thoughtbot's laptop script!
 
 fancy_echo() {
   local fmt="$1"; shift
-
-  # shellcheck disable=SC2059
   printf "\\n$fmt\\n" "$@"
 }
 
@@ -21,11 +11,7 @@ append_to_zshrc() {
   local text="$1" zshrc
   local skip_new_line="${2:-0}"
 
-  if [ -w "$HOME/.zshrc.local" ]; then
-    zshrc="$HOME/.zshrc.local"
-  else
-    zshrc="$HOME/.zshrc"
-  fi
+  zshrc="$HOME/.zshrc"
 
   if ! grep -Fqs "$text" "$zshrc"; then
     if [ "$skip_new_line" -eq 1 ]; then
@@ -105,49 +91,144 @@ fi
 
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force # https://github.com/Homebrew/brew/issues/1151
-brew bundle --file=- <<EOF
-tap "thoughtbot/formulae"
-tap "homebrew/services"
-tap "universal-ctags/universal-ctags"
-tap "heroku/brew"
 
-# Unix
-brew "universal-ctags", args: ["HEAD"]
-brew "git"
-brew "openssl"
-brew "rcm"
-brew "reattach-to-user-namespace"
-brew "the_silver_searcher"
-brew "tmux"
-brew "watchman"
-brew "zsh"
+fancy_echo "Installing Homebrew binaries and casks. This will take a while..."
+brew bundle --file=~/dotfiles/brewfile
 
-# Heroku
-brew "heroku/brew/heroku"
-brew "parity"
+# Install version managers
+# ----------------------------------
 
-# GitHub
-brew "gh"
+fancy_echo "Installing NVM, node version manager"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# Image manipulation
-brew "imagemagick"
+fancy_echo "Installing SDKMan, Java version manager"
+curl -s "https://get.sdkman.io" | bash
 
-# Programming language prerequisites and package managers
-brew "libyaml" # should come after openssl
-brew "coreutils"
-brew "yarn"
-cask "gpg-suite"
-
-# Databases
-brew "postgres", restart_service: :changed
-brew "redis", restart_service: :changed
-EOF
-
-fancy_echo "Update heroku binary ..."
-brew unlink heroku
-brew link --force heroku
-
-if [ -f "$HOME/dotfiles/laptop.local" ]; then
-  fancy_echo "Running your customizations from ~/dotfiles/laptop.local ..."
-  . "$HOME/dotfiles/laptop.local"
+if [! -d "~/.tmux/plugins/tpm" ]; then
+  fancy_echo "Installing tmux plugin manager"
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+
+# Install dotfiles
+# ----------------------------------
+
+if [ -r "$HOME/dotfiles/rcrc" ]; then
+  fancy_echo "Installing dotfiles ..."
+  env RCRC=$HOME/dotfiles/rcrc rcup
+fi
+
+# Install 256 color italic iterm profiles
+# ----------------------------------
+
+tic ~/dotfiles/iterm/xterm-256color-italic.terminfo
+tic ~/dotfiles/iterm/tmux-256color-italic.terminfo
+
+# Configure Neovim
+# ----------------------------------
+
+fancy_echo "Configuring Neovim"
+# https://robots.thoughtbot.com/my-life-with-neovim
+mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+ln -sf ~/.vim $XDG_CONFIG_HOME/nvim
+ln -sf ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+
+# ==================================================================
+# Mac customizations
+# Most from: https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+# ==================================================================
+
+fancy_echo "Setting Mac preferences"
+
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# General
+# ----------------------------------
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Disable the sound effects on boot
+sudo nvram SystemAudioVolume=" "
+
+# Trackpad, mouse, keyboard
+# -----------------------------------------------------------
+
+# Trackpad: enable tap to click for this user and for the login screen
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Set a blazingly fast keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+# Screen
+# ----------------------------------
+
+# Save screenshots to the Screenshots directory
+defaults write com.apple.screencapture location -string "~/Library/Mobile Documents/com~apple~CloudDocs/Documents/Screenshots"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# Finder
+# ----------------------------------
+
+# Set home directory as the default location for new Finder windows
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+
+# Show hidden files
+defaults write com.apple.finder AppleShowAllFiles -bool YES
+
+# Finder: show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Finder: show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Enable spring loading for directories
+defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+
+# Remove the spring loading delay for directories
+defaults write NSGlobalDomain com.apple.springing.delay -float 0
+
+# Show the ~/Library folder
+chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+# Expand the following File Info panes:
+# “General”, “Open with”, and “Sharing & Permissions”
+defaults write com.apple.finder FXInfoPanesExpanded -dict \
+  General -bool true \
+  OpenWith -bool true \
+  Privileges -bool true
+
+# Use list view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `glyv`
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+# VS Code
+# ----------------------------------
+
+# Enable press and hold in VS Code, per https://github.com/VSCodeVim/Vim#mac
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."

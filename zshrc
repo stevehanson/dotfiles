@@ -28,3 +28,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # init rbenv
 eval "$(rbenv init - zsh)"
+
+# added by laptop script
+export PATH="$HOME/.bin:$PATH"
