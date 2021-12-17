@@ -1,31 +1,13 @@
 # Applications
 
-I install the following applications when setting up a new Mac:
+Most applications are installed via Brew casks in the [laptop
+script](../laptop). Manually install the following applications that are not
+available as casks:
 
-* Chrome
-* Alfred
-* Dropbox
-* 1Password -- Vault saved in Dropbox
-* Apptivate -- keyboard shortcuts to launch apps
-* iTerm
-* VS Code
-* Karabiner Elements -- remap caps lock to escape/ctrl
-* Meeter -- meeting reminders and join links
-* Transmit -- FTP client
-* Magnet -- position windows
-* Sip -- color picker
-* Postico -- Postgres client
-* Slack
-* Notion -- notes for personal projects
-* Evernote -- not actively using anymore
-* Figma
-* Sourcetree -- git GUI client
 * Bear -- notes for work
-* Spotify
-* Insomnia -- GraphQL/REST client
-* LiceCAP -- GIF capture tool
-* Zoom
-* Tuple -- pair programming
+* Magnet -- position windows
+* Meeter -- meeting reminders and join links
+* Sip -- color picker
 
 ## App configuration
 
