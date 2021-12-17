@@ -20,7 +20,7 @@ Update this file when new extensions are added with:
 
 ## Load keybindings
 
-Copy [[keybindings.json]] into the keybindings file in VS Code. Periodically back this file up.
+Copy [keybindings.json](keybindings.json) into the keybindings file in VS Code. Periodically back this file up.
 
 ## Load snippets
 
