@@ -1,2 +1,2 @@
-EXCLUDES="README*.md LICENSE docs"
+EXCLUDES="README*.md LICENSE docs laptop* *.png"
 DOTFILES_DIRS="$HOME/dotfiles"
