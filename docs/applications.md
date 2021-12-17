@@ -60,4 +60,4 @@ Find the Personal vault in Dropbox->Apps->1Password. Also use the "1Password - r
 
 ### Configure VS Code
 
-See [VSCode readme](./vscode/README.md)
+See my [VSCode instructions](./vscode).
