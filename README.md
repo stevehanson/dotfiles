@@ -1,7 +1,7 @@
 # shanson's dotfiles
 
 These dotfiles set up Zsh, Vim, and tmux, and are also used to back up iTerm
-config and manage other program dotfiles, like `asdf` and `git`. Some of this
+config and manage other program dotfiles, like `rbenv` and `git`. Some of this
 configuration is borrowed from [thoughtbot's dotfiles][thoughtfiles].
 thoughtbot's [rcm][rcm] is used to manage creating symlinks to the home
 directory.
@@ -21,14 +21,20 @@ Clone this repo to `~/dotfiles`.
 ### Run laptop script
 
 When setting up a new computer, the [thoughtbot
-Laptop](https://github.com/thoughtbot/laptop) script should be used. Rather than downloading the laptop script per the instructions in that repo, this dotfiles repo
-already includes a [slightly modified version](laptop) of the script. Additionally, further customization is done in [laptop.local](laptop.local). Run the Laptop script with:
+Laptop](https://github.com/thoughtbot/laptop) script should be used. Rather than
+downloading the laptop script per the instructions in that repo, this dotfiles
+repo already includes a [slightly modified version](laptop) of the script.
+Additionally, further customization is done in [laptop.local](laptop.local). Run
+the Laptop script with:
 
 ```
 > ~/dotfiles/laptop
 ```
 
-This script is idempotent, so it can be modified and run again as needed. After the laptop script finishes, continue setting up the dotfiles, according to the instructions. The Mac key repeat changes from [laptop.local](laptop.local) may require a restart before they take effect.
+This script is idempotent, so it can be modified and run again as needed. After
+the laptop script finishes, continue setting up the dotfiles, according to the
+instructions. The Mac key repeat changes from [laptop.local](laptop.local) may
+require a restart before they take effect.
 
 ## Dotfiles Installation
 
@@ -38,7 +44,8 @@ Set zsh as your login shell:
 chsh -s $(which zsh)
 ```
 
-Then, clone or fork this repo into `~/dotfiles` if not already done in the Laptop setup.
+Then, clone or fork this repo into `~/dotfiles` if not already done in the
+Laptop setup.
 
 Install [rcm][rcm] (not required if laptop script was done):
 
