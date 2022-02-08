@@ -14,6 +14,11 @@ augroup END
 
 let g:onedark_terminal_italics=1
 colorscheme onedark
+" colorscheme snazzy
+" colorscheme dracula
+
+" Modified Whimsy background
+highlight Normal guibg=#292838
 
 " Make comments italic
 highlight Comment cterm=italic

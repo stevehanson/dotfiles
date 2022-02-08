@@ -6,3 +6,6 @@ style="bold red"
 
 [git_status]
 style="green"
+
+[nodejs]
+disabled = true

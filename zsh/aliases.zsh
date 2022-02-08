@@ -9,6 +9,7 @@ alias sz="source ~/.zshrc"
 alias df="cd ~/dotfiles"
 alias vd="vim ~/dotfiles"
 alias ng="ngrok http 3000"
+alias ip="curl ifconfig.me"
 
 # == Unix ======================================================================
 

@@ -111,6 +111,8 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " syntax themes
 Plug 'joshdick/onedark.vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'connorholyday/vim-snazzy'
 
 if g:has_async
   Plug 'w0rp/ale'
