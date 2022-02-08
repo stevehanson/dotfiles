@@ -11,6 +11,7 @@ tap "neovim/neovim"
 
 brew "bat" # cat command but with syntax highlighting
 brew "diff-so-fancy" # better diffs
+brew "ffmpeg" # video encoding
 brew "fzf" # better search
 brew "gh"
 brew "git"
@@ -35,15 +36,24 @@ brew "zsh-completions"
 brew "getsentry/tools/sentry-cli"
 brew "heroku/brew/heroku"
 
+# Fonts
+cask "font-fira-code"
+cask "font-fira-mono-for-powerline"
+cask "font-meslo-lg"
+cask "font-meslo-for-powerline"
+
+# Apps
 cask "1password"
 cask "alfred"
 cask "android-studio"
 cask "apptivate" # keyboard shortcuts to launch apps
+cask "audacity"
 cask "dropbox"
 cask "evernote" # not actively using anymore
 cask "figma"
 cask "google-chrome"
 cask "gpg-suite"
+cask "handbrake"
 cask "insomnia" # GraphQL/REST client
 cask "karabiner-elements" # remap caps lock to escape/ctrl
 cask "iterm2"
@@ -51,6 +61,7 @@ cask "licecap" # GIF capture tool
 cask "ngrok"
 cask "notion"
 cask "postico" # Postgres client
+cask "react-native-debugger"
 cask "qlimagesize"
 cask "qlmarkdown"
 cask "qlstephen"
@@ -58,7 +69,7 @@ cask "quicklook-json"
 cask "slack"
 cask "sourcetree" # git GUI client
 cask "spotify"
-cask "transmit" # FTP client
+# cask "transmit" # FTP client, license owned is for older v4, install manual
 cask "tuple" # pair programming
 cask "visual-studio-code"
 cask "zoom"
