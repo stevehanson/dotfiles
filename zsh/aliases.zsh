@@ -41,7 +41,7 @@ alias gbg="git branch --all --color --sort=-committerdate | grep -i"
 alias gc="git commit"
 alias gcf="git commit --fixup"
 alias gempty="git commit --allow-empty"
-alias gfet="git fetch"
+alias gf="git fetch"
 alias gwip="git commit -m \"WIP\""
 alias gcm="git checkout main"
 alias gcd="git checkout development"
@@ -53,34 +53,32 @@ alias gl="git log -n 10"
 alias glg="git log -n 50 --grep"
 alias go="git checkout"
 alias gpr="git pull --rebase"
-alias grom="git fetch && git rebase origin/master"
+alias grom="git fetch && git rebase origin/main"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"
 alias gra="git rebase --abort"
 alias grs="git rebase --skip"
 alias grh="git reset --hard"
+function grho() { git reset --hard origin/$(gcurrent) }
 alias gs="git status"
 alias gsa="git stash apply"
 alias gsl="git stash list | HEAD"
+alias gsu="gwip && git stash -u && guncommit" # git stash untracked
 alias guncommit="git reset --soft HEAD^"
 alias gunc="guncommit"
 alias gcomp="gh pr create --web"
-alias gcompd="hub compare -b development"
 alias gpulls="hub browse -- pulls"
 alias gmv="git branch -m"
 alias gcurrent="git rev-parse --abbrev-ref HEAD"
 alias gup='git branch --set-upstream-to=origin/$(gcurrent) $(gcurrent)'
 
-# Usage, to rebase current branch off of other branch when other branch has
-# diverged: `gro other-branch last-stale-sha-or-branch-before-current-branch-changes`
-# Applies commits after the stale sha on top of `other-branch`
-function gro() { git rebase --onto $1 $2 $(gcurrent) }
-function gro1() { gro $1 HEAD~1 $(gcurrent) }
-function gro2() { gro $1 HEAD~2 $(gcurrent) }
-function gro3() { gro $1 HEAD~3 $(gcurrent) }
-function gro4() { gro $1 HEAD~4 $(gcurrent) }
-function gro5() { gro $1 HEAD~5 $(gcurrent) }
-function groom() { git fetch && gro origin/main HEAD~$1 $(gcurrent) }
+# Usage, rebase last X commits of current branch onto other branch
+# gronto main HEAD~3 (rebase last 3 commits onto main)
+# gro main 3 (same as above)
+# groo main 3 (rebase last 3 commits on top of origin/main)
+function gronto() { g fetch && git rebase --onto $1 $2 $(gcurrent) }
+function gro() { gronto $1 HEAD~$2 $(gcurrent) }
+function groo() { gro origin/$1 $2 }
 
 # == GitHub ====================================================================
 alias ghpr="gh pr view --web"
