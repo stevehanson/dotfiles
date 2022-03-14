@@ -61,7 +61,6 @@ cask "licecap" # GIF capture tool
 cask "ngrok"
 cask "notion"
 cask "postico" # Postgres client
-cask "react-native-debugger"
 cask "qlimagesize"
 cask "qlmarkdown"
 cask "qlstephen"
