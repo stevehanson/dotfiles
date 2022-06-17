@@ -1,7 +1,7 @@
 # Applications
 
 Most applications are installed via Brew casks in the [laptop
-script](../laptop). Manually install the following applications that are not
+script](../laptop) ([see Brewfile](../brewfile)). Manually install the following applications that are not
 available as casks:
 
 * Bear -- notes for work
