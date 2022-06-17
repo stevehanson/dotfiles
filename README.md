@@ -10,22 +10,16 @@ directory.
 
 ## Setting up a new computer
 
-### Install apps
-
-[Install and configure applications](./docs/applications.md)
-
 ### Clone this repo
 
 Clone this repo to `~/dotfiles`.
 
 ### Run laptop script
 
-When setting up a new computer, the [thoughtbot
-Laptop](https://github.com/thoughtbot/laptop) script should be used. Rather than
-downloading the laptop script per the instructions in that repo, this dotfiles
-repo already includes a [slightly modified version](laptop) of the script.
-Additionally, further customization is done in [laptop.local](laptop.local). Run
-the Laptop script with:
+When setting up a new computer, the [laptop](laptop) script that is included in
+this repo should be used. This script is a modified version of [thoughtbot's
+Laptop script](https://github.com/thoughtbot/laptop). Run the Laptop script
+with:
 
 ```
 > ~/dotfiles/laptop
@@ -33,10 +27,10 @@ the Laptop script with:
 
 This script is idempotent, so it can be modified and run again as needed. After
 the laptop script finishes, continue setting up the dotfiles, according to the
-instructions. The Mac key repeat changes from [laptop.local](laptop.local) may
-require a restart before they take effect.
+instructions. Some changes from the script, like [the Mac key repeat
+changes](laptop#L175), may require a restart before they take effect.
 
-## Dotfiles Installation
+## Install dotfiles
 
 Set zsh as your login shell:
 
@@ -61,8 +55,8 @@ env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
 Any files in this repo that are not prefixed with a `.` are automatically copied
-to the home directory with a `.` prefix when `rcup` is run. After this initial `rcup`, the `RCRC`
-ENV variable does not need to be manually specified.
+to the home directory with a `.` prefix when `rcup` is run. After this initial 
+`rcup`, the `RCRC` ENV variable does not need to be manually specified.
 
 To exclude any files or directories from being copied, modify the [rcrc](rcrc) file.
 
@@ -76,7 +70,15 @@ If new files are added, the `post-up` can be skipped by running `rcup -K`.
 For more information on what happens with `rcup`, see the [thoughtbot dotfiles
 repo][thoughtfiles].
 
-### Other manual steps
+## Other manual steps
+
+When setting up a new computer, the following manual steps should also be taken.
+
+### Install apps
+
+[Install and configure applications](./docs/applications.md)
+
+### Configure SSH keys
 
 * Generate new SSH key, upload to GitHub, update ~/.ssh/config file with new key
 * Copy relevant config from `~/.ssh/config` of old machine to new machine (eg.
