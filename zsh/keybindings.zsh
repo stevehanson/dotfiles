@@ -1,12 +1,8 @@
 # give us access to ^Q
 stty -ixon
 
-# vi mode
-bindkey -v
-bindkey "^F" vi-cmd-mode
-
-# switch to command mode with 'jk'
-bindkey -M viins 'jk' vi-cmd-mode
+# regular emacs mode
+bindkey -e
 
 # handy keybindings
 bindkey "^W" beginning-of-line
