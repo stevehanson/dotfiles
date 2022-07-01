@@ -46,3 +46,5 @@
 	email = shanson@thoughtbot.com
 [pull]
 	rebase = false
+[interactive]
+	diffFilter = diff-so-fancy --patch
