@@ -1,0 +1,6 @@
+#!/usr/bin/ruby
+
+ext = ARGV[0].split(".").last
+puts "Adding #{ext} to QLStephen PList"
+`plutil -insert CFBundleDocumentTypes.0.LSItemContentTypes.0 -string #{ext} ~/Library/QuickLook/QLStephen.qlgenerator/Contents/Info.plist`
+`qlmanage -r`
