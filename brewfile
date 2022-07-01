@@ -51,6 +51,7 @@ cask "audacity"
 cask "dropbox"
 cask "evernote" # not actively using anymore
 cask "figma"
+cask "flipper" # React Native debugger
 cask "google-chrome"
 cask "gpg-suite"
 cask "handbrake"
