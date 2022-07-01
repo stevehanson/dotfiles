@@ -34,6 +34,7 @@ alias gac="git add . && git commit"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias gam="git commit --amend --no-edit"
+alias gamm="git commit --amend"
 alias gb="git branch --sort=-committerdate --color | head"
 alias gdbak="git branch -D bak &>/dev/null"
 alias gbak="gdbak; git branch bak"
@@ -54,6 +55,7 @@ alias glg="git log -n 50 --grep"
 alias go="git checkout"
 alias gpr="git pull --rebase"
 alias grom="git fetch && git rebase origin/main"
+alias gr="git rebase"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"
 alias gra="git rebase --abort"
@@ -72,11 +74,19 @@ alias gmv="git branch -m"
 alias gcurrent="git rev-parse --abbrev-ref HEAD"
 alias gup='git branch --set-upstream-to=origin/$(gcurrent) $(gcurrent)'
 
+
+function gmo() {
+  local branch="${1:-main}"
+  git fetch && git merge origin/$branch
+}
+
 # Usage, rebase last X commits of current branch onto other branch
 # gronto main HEAD~3 (rebase last 3 commits onto main)
 # gro main 3 (same as above)
-# groo main 3 (rebase last 3 commits on top of origin/main)
-function gronto() { g fetch && git rebase --onto $1 $2 $(gcurrent) }
+# groonto main HEAD~3 (rebase last 3 commits onto origin/main)
+# groo main 3 (same as above)
+function gronto() { git fetch && git rebase --onto $1 $2 $(gcurrent) }
+function groonto() { gronto origin/$1 $2 }
 function gro() { gronto $1 HEAD~$2 $(gcurrent) }
 function groo() { gro origin/$1 $2 }
 
