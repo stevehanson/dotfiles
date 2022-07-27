@@ -78,6 +78,13 @@ When setting up a new computer, the following manual steps should also be taken.
 
 [Install and configure applications](./docs/applications.md)
 
+### Backing up old computer
+
+* Manually back up the Photos and Photo Booth libraries for copy to new machine
+* Export Alfred preferences
+* Export Day One Journal
+* Back up `dev` directory
+
 ### Configure SSH keys
 
 * Generate new SSH key, upload to GitHub, update ~/.ssh/config file with new key
