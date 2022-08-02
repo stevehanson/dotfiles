@@ -10,7 +10,7 @@ This directory also contains some other files:
 ### Terminfo files
 
 These files set up iTerm to display 256 colors and italics font-styles. They are
-automatically loaded in the laptop script (see [laptop.local](../laptop.local))
+automatically loaded in the laptop script (see [laptop.local](../laptop))
 on initial computer setup and then used in the zsh and tmux config.
 
 ### theme
