@@ -9,3 +9,6 @@ style="green"
 
 [nodejs]
 disabled = true
+
+[ruby]
+disabled = true

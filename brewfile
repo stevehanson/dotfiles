@@ -48,6 +48,7 @@ cask "alfred"
 cask "android-studio"
 cask "apptivate" # keyboard shortcuts to launch apps
 cask "audacity"
+cask "dash" # documentation
 cask "dropbox"
 cask "evernote" # not actively using anymore
 cask "figma"
@@ -55,8 +56,10 @@ cask "flipper" # React Native debugger
 cask "google-chrome"
 cask "gpg-suite"
 cask "handbrake"
+cask "hiddenbar" # Hide menu bar items
 cask "insomnia" # GraphQL/REST client
 cask "karabiner-elements" # remap caps lock to escape/ctrl
+cask "imageoptim"
 cask "iterm2"
 cask "licecap" # GIF capture tool
 cask "ngrok"
