@@ -35,7 +35,7 @@ alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias gam="git commit --amend --no-edit"
 alias gamm="git commit --amend"
-alias gb="git branch --sort=-committerdate --color | head"
+alias gb="git branch --sort=-committerdate --color --format='%(color:bold cyan)%(HEAD)%(color:reset) %(if)%(HEAD)%(then)%(color:bold cyan)%(end)%(refname:short)%(color:reset) %(color:red)%(committerdate:relative)%(color:reset)' | head"
 alias gdbak="git branch -D bak &>/dev/null"
 alias gbak="gdbak; git branch bak"
 alias gbg="git branch --all --color --sort=-committerdate | grep -i"
@@ -61,7 +61,6 @@ alias grc="git rebase --continue"
 alias gra="git rebase --abort"
 alias grs="git rebase --skip"
 alias grh="git reset --hard"
-function grho() { git reset --hard origin/$(gcurrent) }
 alias gs="git status"
 alias gsa="git stash apply"
 alias gsl="git stash list | HEAD"
@@ -74,18 +73,29 @@ alias gmv="git branch -m"
 alias gcurrent="git rev-parse --abbrev-ref HEAD"
 alias gup='git branch --set-upstream-to=origin/$(gcurrent) $(gcurrent)'
 
+# usage:
+#   grho (reset to upstream of same branch)
+#   grho my-branch (reset to origin/my-branch)
+function grho() {
+  local branch="${1:-$(gcurrent)}"
+  git fetch origin && git reset --hard origin/$branch
+}
 
+# usage:
+#   gmo (fetch and merge origin/main)
+#   gmo my-branch (fetch and merge origin/my-branch)
 function gmo() {
   local branch="${1:-main}"
-  git fetch && git merge origin/$branch
+  git fetch origin && git merge origin/$branch
 }
 
 # Usage, rebase last X commits of current branch onto other branch
+# git rebase --onto main HEAD~3 current-branch (rebase last 3 commits on main)
 # gronto main HEAD~3 (rebase last 3 commits onto main)
 # gro main 3 (same as above)
 # groonto main HEAD~3 (rebase last 3 commits onto origin/main)
 # groo main 3 (same as above)
-function gronto() { git fetch && git rebase --onto $1 $2 $(gcurrent) }
+function gronto() { git fetch origin && git rebase --onto $1 $2 $(gcurrent) }
 function groonto() { gronto origin/$1 $2 }
 function gro() { gronto $1 HEAD~$2 $(gcurrent) }
 function groo() { gro origin/$1 $2 }
