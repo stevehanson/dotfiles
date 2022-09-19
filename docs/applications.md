@@ -2,12 +2,19 @@
 
 Most applications are installed via Brew casks in the [laptop
 script](../laptop) ([see Brewfile](../brewfile)). Manually install the following applications that are not
-available as casks:
+available as casks.
 
-* Bear -- notes for work
+Log into the Mac App Store and re-download the following by clicking on my profile:
+
 * Magnet -- position windows
 * Meeter -- meeting reminders and join links
+* Things 3
+* XCode
+
+Download the following from the web:
+
 * Sip -- color picker
+* Bear -- notes for work
 
 ## App configuration
 
