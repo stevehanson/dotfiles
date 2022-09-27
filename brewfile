@@ -9,6 +9,14 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "neovim/neovim"
 
+# these apps go first so not blocking new machine setup
+cask "alfred"
+cask "1password"
+cask "dropbox"
+cask "google-chrome"
+cask "slack"
+cask "visual-studio-code"
+
 brew "bat" # cat command but with syntax highlighting
 brew "diff-so-fancy" # better diffs
 brew "ffmpeg" # video encoding
@@ -30,9 +38,11 @@ brew "starship" # shell prompt
 brew "tmux"
 brew "watchman"
 brew "yarn"
+brew "zplug"
 brew "zsh"
 brew "zsh-autosuggestions"
 brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 brew "getsentry/tools/sentry-cli"
 brew "heroku/brew/heroku"
 
@@ -43,17 +53,13 @@ cask "font-meslo-lg"
 cask "font-meslo-for-powerline"
 
 # Apps
-cask "1password"
-cask "alfred"
 cask "android-studio"
 cask "apptivate" # keyboard shortcuts to launch apps
 cask "audacity"
 cask "dash" # documentation
-cask "dropbox"
 cask "evernote" # not actively using anymore
 cask "figma"
 cask "flipper" # React Native debugger
-cask "google-chrome"
 cask "gpg-suite"
 cask "handbrake"
 cask "hiddenbar" # Hide menu bar items
@@ -67,12 +73,9 @@ cask "notion"
 cask "postico" # Postgres client
 cask "qlimagesize"
 cask "qlmarkdown"
-cask "qlstephen"
 cask "quicklook-json"
-cask "slack"
 cask "sourcetree" # git GUI client
 cask "spotify"
 # cask "transmit" # FTP client, license owned is for older v4, install manual
 cask "tuple" # pair programming
-cask "visual-studio-code"
 cask "zoom"
