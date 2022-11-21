@@ -33,6 +33,7 @@ brew "rbenv"
 brew "rcm"
 brew "reattach-to-user-namespace"
 brew "redis", restart_service: true
+brew "rsync"
 brew "ripgrep" # better grep
 brew "starship" # shell prompt
 brew "tmux"
