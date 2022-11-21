@@ -124,6 +124,13 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 ln -sf ~/.vim $XDG_CONFIG_HOME/nvim
 ln -sf ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
+
+# Install zsh-syntax-highlighting
+# ----------------------------------
+
+fancy_echo "Installing ZSH syntax highlighting"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh-syntax-highlighting
+
 # ==================================================================
 # Mac customizations
 # Most from: https://github.com/mathiasbynens/dotfiles/blob/master/.macos

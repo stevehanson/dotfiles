@@ -1,7 +1,6 @@
-source ~/.zplug/init.zsh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
 source $HOMEBREW_ROOT/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zplug/repos/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 # zsh-syntax-highlighting
 typeset -A ZSH_HIGHLIGHT_PATTERNS
