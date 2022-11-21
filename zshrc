@@ -18,8 +18,8 @@ source ~/.zsh/aliases.zsh
 [[ -f ~/.zshrc.private ]] && source ~/.zshrc.private
 
 # Source Java SDK Manager
-export SDKMAN_DIR="/Users/shanson/.sdkman"
-[[ -s "/Users/shanson/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/shanson/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # added by laptop script
 export PATH="$HOME/.bin:$PATH"

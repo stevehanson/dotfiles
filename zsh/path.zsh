@@ -1,5 +1,5 @@
 export HOMEBREW_ROOT="/opt/homebrew"
-export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_SDK_ROOT=~/Library/Android/sdk
 export BAT_CONFIG_PATH=~/.bat.conf
 export RBENV_ROOT="${HOME}/.rbenv"
 
@@ -18,8 +18,8 @@ PATH="$HOME/Library/Python/2.7/bin:$PATH"
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Add Android tools
-export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/bin:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # add custom scripts to path
 PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
