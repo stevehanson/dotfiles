@@ -84,11 +84,6 @@ if ! command -v brew >/dev/null; then
     export PATH="/opt/homebrew/bin:$PATH"
 fi
 
-if brew list | grep -Fq brew-cask; then
-  fancy_echo "Uninstalling old Homebrew-Cask ..."
-  brew uninstall --force brew-cask
-fi
-
 fancy_echo "Updating Homebrew formulae ..."
 brew update --force # https://github.com/Homebrew/brew/issues/1151
 
@@ -97,9 +92,6 @@ brew bundle --file=~/dotfiles/brewfile
 
 # Install version managers
 # ----------------------------------
-
-fancy_echo "Installing NVM, node version manager"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 fancy_echo "Installing SDKMan, Java version manager"
 curl -s "https://get.sdkman.io" | bash

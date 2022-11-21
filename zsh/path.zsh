@@ -3,9 +3,6 @@ export ANDROID_HOME=~/Library/Android/sdk
 export BAT_CONFIG_PATH=~/.bat.conf
 export RBENV_ROOT="${HOME}/.rbenv"
 
-# init rbenv
-eval "$(rbenv init - zsh)"
-
 eval "$($HOMEBREW_ROOT/bin/brew shellenv)"
 
 # add scripts from dotfiles/bin to path
