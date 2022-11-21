@@ -21,6 +21,7 @@ alias v="$VISUAL"
 alias path='print -l $PATH' # Pretty print the path
 function findGem() { find . -type f -name "Gemfile" -exec grep -q -e '$1' {} \; -print}
 alias sizeofdir="du -h -d 1" # supply dir after
+alias backmeup="~/dev/backmeup/backmeup"
 
 # alias "c {x}" to do "cd ~/dev/{x}"
 # tab completion set up in zsh/completion/_c

@@ -1,0 +1,2 @@
+#compdef backmeup
+_files -W ~/ -/;
