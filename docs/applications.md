@@ -4,17 +4,22 @@ Most applications are installed via Brew casks in the [laptop
 script](../laptop) ([see Brewfile](../brewfile)). Manually install the following applications that are not
 available as casks.
 
+## Download apps from the App Store
+
 Log into the Mac App Store and re-download the following by clicking on my profile:
 
 * Magnet -- position windows
 * Meeter -- meeting reminders and join links
-* Things 3
-* XCode
+* Things 3 -- task manager
+* XCode -- iOS development
+* Pixelmator Pro -- image editing
+* Bear -- work notes, not paid since don't sync to other devices
 
-Download the following from the web:
+I might choose to automate installation of the above with [Mas](https://github.com/mas-cli/mas) at a later time. For now, I don't mind keeping this manual since I like being able to install these as the Homebrew packages are also being downloaded.
 
-* Sip -- color picker
-* Bear -- notes for work
+## Download apps from the web
+
+* [Sip](https://sipapp.io/) -- color picker
 
 ## App configuration
 
