@@ -39,6 +39,7 @@
 	trustExitCode = true
 [push]
   default = current
+  autoSetupRemote = true
 [rebase]
   autosquash = true
 [user]
