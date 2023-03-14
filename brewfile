@@ -54,9 +54,11 @@ cask "font-meslo-lg"
 cask "font-meslo-for-powerline"
 
 # Apps
+cask "agenda"
 cask "android-studio"
 cask "apptivate" # keyboard shortcuts to launch apps
 cask "audacity"
+cask "cron"
 cask "dash" # documentation
 cask "evernote" # not actively using anymore
 cask "figma"
