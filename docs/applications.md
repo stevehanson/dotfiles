@@ -36,21 +36,31 @@ Set the following keyboard mappings in Preferences:
 
 ### Configure Karabiner Elements
 
+We will import and enable two rules:
+
 * Go to Complex Modifications -> Add Rule -> Import from Internet
 * Import “Change caps_lock key (rev 5)
 * Enable rule: “Change caps_lock to control if pressed with other keys, to escape if pressed alone.”
+* Import rule from Internet "Keyboard Brightness Adjustment"
+* Enable rule: "command-f1 and f2 to adjust keyboard brightness
 
 ### Configure Apptivate
 
-Set up shortcuts for Chrome (cmd+space), Mail (“ctrl+a, M”), iTerm (“ctrl+a, T”), Slack (“ctrl+a, S”), Finder, 1Password, Spotify, VS Code, Notion, Messages, Calendar, Zoom, “Connect to JBL Charge 3” (script). All shortcuts are chorded starting with “ctrl+a” except Chrome
+Set up shortcuts for Chrome (cmd+space), Mail (“ctrl+a, M”), iTerm (“ctrl+a, T”), Slack (“ctrl+a, S”), Finder, 1Password, Spotify ("P"), VS Code, Notion, Messages ("E"), Cron, Zoom. All shortcuts are chorded starting with “ctrl+a” except Chrome
 
 ### Configure Chrome
 
 Set up two profiles called Work and Personal. Add keyboard shortcuts ctrl+s ("Stephen (Personal)") and ctrl+w ("Stephen (Work)") for launching the profiles in System Preferences -> Keyboard -> Keyboard Shortcuts
 
+### Configure Alfred
+
+* Install "Search Notes" plugin by Sean Ballinger
+* Install "IP Address"
+* Install "CalmNotifications" (adds "do not disturb" time-boxed commands, eg. "dnd 30" for 30 minute focus)
+
 ### Configure 1Password
 
-Find the Personal vault in Dropbox->Apps->1Password. Also use the "1Password - requires desktop app" browser extension.
+Find the Personal vault in Dropbox->Apps->1Password. Also install browser extension.
 
 ### Configure VS Code
 
