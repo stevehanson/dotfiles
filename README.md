@@ -54,15 +54,15 @@ Install the dotfiles:
 env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
-Any files in this repo that are not prefixed with a `.` are automatically copied
+Any files in this repo that are not prefixed with a `.` are automatically symlinked
 to the home directory with a `.` prefix when `rcup` is run. After this initial 
 `rcup`, the `RCRC` ENV variable does not need to be manually specified.
 
-To exclude any files or directories from being copied, modify the [rcrc](rcrc) file.
+To exclude any files or directories from being symlinked, modify the [rcrc](rcrc) file.
 
 Running `rcup` does the following:
 
-* Copies files to the home directory
+* Symlinks files to the home directory
 * Runs vim-plug and zplug (specified in [hooks/post-up]())
 
 If new files are added, the `post-up` can be skipped by running `rcup -K`.
