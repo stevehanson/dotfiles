@@ -20,6 +20,7 @@ I might choose to automate installation of the above with [Mas](https://github.c
 ## Download apps from the web
 
 * [Sip](https://sipapp.io/) -- color picker
+  * license is in my gmail (search for "sip paddle"), might need to download older version since license gives one year of updates. Using v2.7.1 as of 2024
 
 ## App configuration
 
