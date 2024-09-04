@@ -31,7 +31,6 @@ function c() { cd ~/dev/$1; }
 
 alias g-="git checkout -"
 alias ga="git add ."
-alias gac="git add . && git commit"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias gam="git commit --amend --no-edit"
@@ -46,16 +45,17 @@ alias gempty="git commit --allow-empty"
 alias gf="git fetch"
 alias gwip="git commit -m \"WIP\""
 alias gcm="git checkout main"
-alias gcd="git checkout development"
+alias gcd="git checkout dev"
 alias gd="git diff"
 alias gds="git diff --cached"
 alias gdd="git branch -d"
 alias gDD="git branch -D"
 alias gl="git log -n 10"
 alias glg="git log -n 50 --grep"
-alias go="git checkout"
+alias goo="git fetch origin && git checkout"
 alias gpr="git pull --rebase"
 alias grom="git fetch && git rebase origin/main"
+alias grod="git fetch && git rebase origin/dev"
 alias gr="git rebase"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"
@@ -73,6 +73,33 @@ alias gpulls="hub browse -- pulls"
 alias gmv="git branch -m"
 alias gcurrent="git rev-parse --abbrev-ref HEAD"
 alias gup='git branch --set-upstream-to=origin/$(gcurrent) $(gcurrent)'
+
+function tmpl() {
+  cp ~/dev/tmpl/$1 $1
+}
+
+# stash apply by name
+# usage: gsan stash-name
+function gsan() {
+  git stash apply stash^{/$1}
+}
+
+# check out a branch. If branch name is provided, check out that branch.
+# Otherwise, use fzf to select a branch
+function go() {
+  if [[ $# -gt 0 ]]; then
+    git checkout "$@"
+  else
+    git checkout "$(git branch --sort=-committerdate | fzf| tr -d '[:space:]')"
+  fi
+}
+function gco() {
+  if [[ $# -gt 0 ]]; then
+    git checkout "$@"
+  else
+    git checkout "$(git branch --sort=-committerdate | fzf| tr -d '[:space:]')"
+  fi
+}
 
 # usage:
 #   grho (reset to upstream of same branch)
@@ -95,7 +122,7 @@ function gmo() {
 # gronto main HEAD~3 (rebase last 3 commits onto main)
 # gro main 3 (same as above)
 # groonto main HEAD~3 (rebase last 3 commits onto origin/main)
-# groo main 3 (same as above)
+# groo main 3 (same as above - git rebase --onto origin/main HEAD~3 current-branch)
 function gronto() { git fetch origin && git rebase --onto $1 $2 $(gcurrent) }
 function groonto() { gronto origin/$1 $2 }
 function gro() { gronto $1 HEAD~$2 $(gcurrent) }
@@ -131,6 +158,11 @@ alias ysf="yarn standard --fix"
 alias rn="react-native"
 alias rni="react-native run-ios"
 alias rna="react-native run-android"
+
+alias simulators="xcrun simctl list"
+alias simulator="xcrun simctl boot" # pass UUID from above command to this alias
+alias emu="emulator -avd Pixel_3a_API_32_arm64-v8a"
+alias emus="emulator -list-avds"
 
 # == Postgres ==================================================================
 

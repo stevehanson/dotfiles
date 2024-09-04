@@ -49,3 +49,7 @@
 	rebase = false
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[merge]
+	conflictStyle = zdiff3
+[rerere]
+  enabled = true

@@ -17,12 +17,19 @@ PATH="$HOME/Library/Python/2.7/bin:$PATH"
 # Add yarn
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 # Add Android tools
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # add custom scripts to path
 PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# init rbenv
+eval "$(rbenv init - zsh --no-rehash)"
 
 # mkdir .git/safe in the root of repositories you trust
 PATH=".git/safe/../../bin:$PATH"

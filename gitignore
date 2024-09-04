@@ -11,4 +11,5 @@ tags
 tmp/**/*
 !tmp/cache/.keep
 *.pyc
-.vscode
+.vscode/settings.json
+.pryrc

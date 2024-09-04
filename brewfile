@@ -19,6 +19,8 @@ cask "visual-studio-code"
 
 brew "bat" # cat command but with syntax highlighting
 brew "diff-so-fancy" # better diffs
+brew "direnv" # load ENV variables from current dir
+brew "docker-compose"
 brew "ffmpeg" # video encoding
 brew "fzf" # better search
 brew "gh"
