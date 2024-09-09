@@ -9,13 +9,11 @@ available as casks.
 Log into the Mac App Store and re-download the following by clicking on my profile:
 
 * Magnet -- position windows
-* Meeter -- meeting reminders and join links
 * Things 3 -- task manager
 * XCode -- iOS development
 * Pixelmator Pro -- image editing
-* Bear -- work notes, not paid since don't sync to other devices
 
-I might choose to automate installation of the above with [Mas](https://github.com/mas-cli/mas) at a later time. For now, I don't mind keeping this manual since I like being able to install these as the Homebrew packages are also being downloaded.
+I might choose to automate installation of the above with [Mas](https://github.com/mas-cli/mas) at a later time, or maybe brew casks will be added. For now, I don't mind keeping this manual since I like being able to install these as the Homebrew packages are also being downloaded.
 
 ## Download apps from the web
 
@@ -47,7 +45,7 @@ We will import and enable two rules:
 
 ### Configure Apptivate
 
-Set up shortcuts for Chrome (cmd+space), Mail (“ctrl+a, M”), iTerm (“ctrl+a, T”), Slack (“ctrl+a, S”), Finder, 1Password, Spotify ("P"), VS Code, Notion, Messages ("E"), Cron, Zoom. All shortcuts are chorded starting with “ctrl+a” except Chrome
+Set up shortcuts for Chrome (cmd+space), Mail (“ctrl+a, M”), iTerm (“ctrl+a, T”), Slack (“ctrl+a, S”), Finder, 1Password, Spotify ("P"), VS Code, Notion, Messages ("E"), Notion Calendar, Zoom. All shortcuts are chorded starting with “ctrl+a” except Chrome
 
 ### Configure Chrome
 
