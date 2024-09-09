@@ -53,6 +53,8 @@ Set up two profiles called Work and Personal. Add keyboard shortcuts ctrl+s ("St
 
 ### Configure Alfred
 
+Purchased Alfred 5 upgrade 2022, license is in my gmail.
+
 * Install "[Search Notes](https://github.com/sballin/alfred-search-notes-app)" plugin by Sean Ballinger
 * Install "[IP Address](https://alfred.app/workflows/alexchantastic/ip-address/)"
 * Install "[Calm Notifications](https://alfred.app/workflows/vitor/calm-notifications/)" (adds "do not disturb" time-boxed commands, eg. "dnd 30" for 30 minute focus)
