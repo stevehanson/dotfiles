@@ -55,14 +55,15 @@ Set up two profiles called Work and Personal. Add keyboard shortcuts ctrl+s ("St
 
 ### Configure Alfred
 
-* Install "Search Notes" plugin by Sean Ballinger
-* Install "IP Address"
-* Install "CalmNotifications" (adds "do not disturb" time-boxed commands, eg. "dnd 30" for 30 minute focus)
+* Install "[Search Notes](https://github.com/sballin/alfred-search-notes-app)" plugin by Sean Ballinger
+* Install "[IP Address](https://alfred.app/workflows/alexchantastic/ip-address/)"
+* Install "[Calm Notifications](https://alfred.app/workflows/vitor/calm-notifications/)" (adds "do not disturb" time-boxed commands, eg. "dnd 30" for 30 minute focus)
+* Configure clipboard history with hotkey cmd+ctrl+c, set it to also keep images 
 
 ### Configure 1Password
 
-Find the Personal vault in Dropbox->Apps->1Password. Also install browser extension.
+Just sign in. I subscribe to the family plan.
 
 ### Configure VS Code
 
-See my [VSCode instructions](./vscode).
+Settings should be synced automatically, but also see my [VSCode instructions](./vscode).
