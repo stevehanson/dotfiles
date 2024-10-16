@@ -5,7 +5,10 @@ style="bold blue"
 style="bold red"
 
 [git_status]
-style="green"
+disabled = true
+
+[python]
+disabled = true
 
 [nodejs]
 disabled = true
