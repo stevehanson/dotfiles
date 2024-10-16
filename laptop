@@ -115,22 +115,6 @@ fi
 tic ~/dotfiles/iterm/xterm-256color-italic.terminfo
 tic ~/dotfiles/iterm/tmux-256color-italic.terminfo
 
-# Configure Neovim
-# ----------------------------------
-
-fancy_echo "Configuring Neovim"
-# https://robots.thoughtbot.com/my-life-with-neovim
-mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-ln -sf ~/.vim $XDG_CONFIG_HOME/nvim
-ln -sf ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
-
-
-# Install zsh-syntax-highlighting
-# ----------------------------------
-
-fancy_echo "Installing ZSH syntax highlighting"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh-syntax-highlighting
-
 # ==================================================================
 # Mac customizations
 # Most from: https://github.com/mathiasbynens/dotfiles/blob/master/.macos

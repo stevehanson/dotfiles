@@ -1,5 +1,5 @@
 source $HOMEBREW_ROOT/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOMEBREW_ROOT/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 # zsh-syntax-highlighting
